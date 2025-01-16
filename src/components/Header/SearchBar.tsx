@@ -1,4 +1,4 @@
-import { FormControl, InputAdornment, TextField } from "@mui/material";
+import { FormControl, InputAdornment, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
@@ -60,7 +60,7 @@ export default function SearchBar() {
             }}
             variant="outlined"
         />
-        {/* <InputLabel id="category-select-label" sx={{ whiteSpace: "nowrap" }}></InputLabel>
+        <InputLabel id="category-select-label" sx={{ whiteSpace: "nowrap" }}></InputLabel>
         <Select
             className="Select"
             labelId="category-select-label"
@@ -73,6 +73,6 @@ export default function SearchBar() {
                 {category.name}
             </MenuItem>
             ))}
-        </Select> */}
+        </Select>
     </FormControl>
 }

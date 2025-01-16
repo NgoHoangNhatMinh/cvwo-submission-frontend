@@ -18,9 +18,6 @@ function IndexComments({post_id}: {post_id: number}): JSX.Element {
     const [edit, setEdit] = useState<Record<number,boolean>>({});
     const navigate = useNavigate();
     const {user} = useUser();
-    // Fetch all users --> should instead fetch the user associated to the comment instead of this but I'll use this for now
-    // I give up for now
-    const [users, setUsers] = useState<Record<number,{ username: string; image_url?: string }>>([]);
 
     async function handleDelete(comment: Comment) {
         // Request DELETE current post to the server
@@ -67,12 +64,6 @@ function IndexComments({post_id}: {post_id: number}): JSX.Element {
                 setError(error.message);
                 setLoading(false);
             })
-
-        axios.get(`${API_URL}/users`)
-            .then(response => {
-                setUsers(response.data);
-            })
-            .catch()
     }, []);
 
     if (error) {

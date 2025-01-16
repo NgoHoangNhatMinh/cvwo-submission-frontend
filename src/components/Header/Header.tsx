@@ -73,9 +73,9 @@ function Header() {
                         setUser(response.data)
                     }
                 })
-                .catch (error => {
-                    setError(error.message);
-                    throw new Error(error.message);
+                .catch (e => {
+                    setError(e.message);
+                    console.log(error);
                 }) 
         }
 
