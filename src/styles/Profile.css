@@ -1,0 +1,10 @@
+.ProfileContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.ProfileContainer .UserProfilePicture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}

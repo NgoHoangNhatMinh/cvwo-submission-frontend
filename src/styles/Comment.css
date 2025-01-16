@@ -1,0 +1,36 @@
+/* INDEX COMMENTS */
+
+.IndexComments .Comment {
+    margin: 1rem 0px 1rem;
+    display: flex;
+    gap: 10px;
+}
+
+.IndexComments .Comment p{
+    margin: 0;
+}
+
+.IndexComments .CommentUser {
+    font-weight: 600;
+}
+
+.IndexComments .UserAvatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.CommentOptions {
+    display: flex;
+    gap: 10px;
+}
+
+/* ADD COMMENT */
+
+.AddComment {
+    margin: 0px;
+    border: 0;
+    border-bottom: 2px solid gray;
+    border-radius: 0;
+    padding: 10px 0px 15px;
+}

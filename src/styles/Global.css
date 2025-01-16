@@ -1,0 +1,136 @@
+/* Default light theme variables */
+:root {
+  --primary-main: #ffffff;
+  --primary-dark: #000000;
+  --primary-text: #000000;
+  --primary-contrast: #000000;
+  --primary-button: #ffffff;
+  --primary-highlight: #eeeeee;
+  --secondary-main: #f9f9fb;
+  --secondary-dark: #000000;
+  --secondary-text: grey;
+}
+
+[data-theme='dark'] {
+  --primary-main: #0e1113;
+  --primary-dark: rgba(255, 255, 255, 0.87);
+  --primary-text: rgba(255, 255, 255, 0.87);
+  --primary-contrast: #ffffff;
+  --primary-button: #1a1a1a;
+  --primary-highlight: #262626;
+  --secondary-main: #121212;
+  --secondary-dark: #ffffff;
+  --secondary-text: grey;
+}
+
+/* OVERALL STYLING */
+
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 1;
+    background-color: var(--primary-main);
+    color: var(--primary-text);
+}
+
+button {
+    background-color: var(--primary-button);
+    color: var(--primary-text);
+    border-color: var(--secondary-dark);
+}
+
+.TextField .MuiInputLabel-root{
+    color: var(--secondary-text);
+}
+
+.TextField .MuiOutlinedInput-root{
+    & fieldset {
+        border-color: var(--primary-contrast); /* Default border color */
+    }
+}
+
+.FormControlSelect .MuiInputLabel-root {
+    color: var(--secondary-text);
+  }
+
+.Select .MuiOutlinedInput-notchedOutline {
+    border-color: var(--primary-contrast);
+  }
+
+/* FROM THE TOP DOWN */
+
+/* HEADER COMPONENTS */
+.HeaderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 50px 0px;
+    border-bottom: 2px solid #202122;
+    height: 5rem;
+}
+
+.MiddleHeader {
+    position: absolute;
+    /* top: 50%; */
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.Options {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.UserProfilePicture {
+    border-radius: 50%;
+}
+
+/* MAIN SECTION COMPONENTS */
+
+main {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0px 250px 0px;
+    padding: 0px 0px 0px;
+    flex: 1;
+    border-left: 2px solid #202122; 
+    border-right: 2px solid #202122; 
+    position: relative;
+    background-color: var(--secondary-main);
+}
+
+@media (max-width: 600px) {
+    main {
+        margin: 0px 100px 0px;
+    }
+}
+
+/* FOOTER COMPONENTS */
+
+.FooterContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 30vh;
+    border-top: 2px solid #202122;
+}
+
+.FooterContainer .SocialsContainer {
+    display: flex;
+    gap: 5px;
+}
+
+.FooterContainer div {
+    margin: 0px 30px 0px;
+}
+
+.FooterContainer .SocialIcon {
+    max-width: 30px;
+}
+
+.LogoContainer img {
+    max-width: 100px;
+}

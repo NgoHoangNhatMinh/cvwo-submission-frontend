@@ -1,0 +1,33 @@
+.PostsContainer {
+    position: relative;
+    /* min-width: 500px; */
+    min-width: 80%;
+}
+
+.PostBorder {
+    border-bottom: 2px solid gray;
+}
+
+.Post {
+    margin: 20px 10px 20px;
+    padding: 0px 10px 0px;
+    border-radius: 8px;
+    /* min-width: 300px; */
+}
+
+.Post:hover {
+    cursor: pointer;
+    background-color: var(--primary-highlight);
+}
+
+.Post p {
+    color: #66747b;
+}
+
+.SortContainer {
+    position: relative;
+}
+
+.SortContainer select {
+    /* display: none; */
+}
