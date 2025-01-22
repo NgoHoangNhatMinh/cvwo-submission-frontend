@@ -1,4 +1,4 @@
-import { FormControl, InputAdornment, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import { Button, FormControl, InputAdornment, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
@@ -74,5 +74,6 @@ export default function SearchBar() {
             </MenuItem>
             ))}
         </Select>
+        <Button type='submit'>Search</Button>
     </FormControl>
 }
