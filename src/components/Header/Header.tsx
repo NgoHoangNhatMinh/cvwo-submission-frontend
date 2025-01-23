@@ -75,6 +75,7 @@ function Header() {
                 })
                 .catch (e => {
                     setError(e.message);
+                    console.log(error);
                     setLoggedIn(false);
                     localStorage.removeItem('auth_token');
                 }) 
