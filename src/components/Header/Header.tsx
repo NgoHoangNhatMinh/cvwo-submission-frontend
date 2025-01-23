@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { useEffect, useState } from "react";
 import { useUser } from "../contexts/UserContext";
-import Logo from '../../assets/react.svg'
+import Logo from '../../assets/cvwo-logo-zip-file/svg/logo-color.svg'
 import { Avatar, Button, } from "@mui/material";
 import { useTheme } from "../contexts/ThemeContext";
 import axios from "axios";
@@ -75,7 +75,8 @@ function Header() {
                 })
                 .catch (e => {
                     setError(e.message);
-                    console.log(error);
+                    setLoggedIn(false);
+                    localStorage.removeItem('auth_token');
                 }) 
         }
 
