@@ -1,15 +1,10 @@
-import { Button, FormControl, InputAdornment, InputLabel, MenuItem, Select, TextField } from "@mui/material";
-import { useEffect, useState } from "react";
+import { Button, FormControl, InputAdornment, TextField } from "@mui/material";
+import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
-import axios from "axios";
-import { Category } from "../../interfaces";
 
 export default function SearchBar() {
-    const API_URL: string | undefined = import.meta.env.VITE_API_URL;
     const [search, setSearch] = useState<string>("")
-    const [categoryID, setCategoryID] = useState<number | undefined>();
-    const [categories, setCategories] = useState<Category[]>([]);
     const [searchParams, setSearchParams] = useSearchParams();
 
     function handleSearch(event: any) {
@@ -17,17 +12,10 @@ export default function SearchBar() {
 
         const newParams = new URLSearchParams(searchParams); // Clone existing params
         newParams.set("q", search); // Add or update the "q" parameter
-        newParams.set("category_id", String(categoryID))
         setSearchParams(newParams); // Update the URL with the new parameters
 
         setSearch("");
     }
-
-    // Fetch categories data on mount
-    useEffect(() => {
-        axios.get(`${API_URL}/categories`)
-            .then(response => {setCategories(response.data)})
-    }, [])
 
     return <FormControl
         className="Form"
@@ -46,7 +34,7 @@ export default function SearchBar() {
         <TextField
             className="TextField"
             id="searchbox"
-            label="Search Forum"
+            label="Search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             slotProps={{
@@ -60,20 +48,6 @@ export default function SearchBar() {
             }}
             variant="outlined"
         />
-        <InputLabel id="category-select-label" sx={{ whiteSpace: "nowrap" }}></InputLabel>
-        <Select
-            className="Select"
-            labelId="category-select-label"
-            id="category-select"
-            value={categoryID}
-            onChange={(e) => setCategoryID(Number(e.target.value))}
-        >
-            {categories.map((category) => (
-            <MenuItem value={category.id} key={category.id}>
-                {category.name}
-            </MenuItem>
-            ))}
-        </Select>
         <Button type='submit'>Search</Button>
     </FormControl>
 }

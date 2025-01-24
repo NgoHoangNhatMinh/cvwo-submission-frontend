@@ -6,6 +6,7 @@ import Header from './components/Header/Header'
 import { AuthProvider } from './components/contexts/AuthContext'
 import { UserProvider } from './components/contexts/UserContext'
 import { ThemeProvider } from './components/contexts/ThemeContext'
+import SideBar from "./components/SideBar.tsx"
 
 // Display the homepage - index most recent posts
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <AuthProvider>
             <Header/>
             <main>
+              <SideBar/>
               <Outlet/>
             </main>
             {/* <Footer/> */}
