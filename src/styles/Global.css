@@ -1,7 +1,6 @@
 /* Default light theme variables */
 :root {
   --primary-main: #ffffff;
-  --primary-dark: #000000;
   --primary-text: #000000;
   --primary-contrast: #000000;
   --primary-button: #ffffff;
@@ -14,20 +13,21 @@
 }
 
 [data-theme='dark'] {
-  --primary-main: #0e1113;
-  --primary-dark: rgba(255, 255, 255, 0.87);
+  --primary-main: #232a32;
   --primary-text: rgba(255, 255, 255, 0.87);
   --primary-contrast: #ffffff;
   --primary-button: #1a1a1a;
-  --primary-highlight: #262626;
-  --secondary-main: #121212;
+  --primary-highlight: #2e373f;
+  --secondary-main: #1e252b;
   --secondary-dark: #ffffff;
   --secondary-text: grey;
-  --outline: #202122;
+  --outline: #4b4b4b;
   --header: #48293e;
 }
 
 /* OVERALL STYLING */
+
+
 
 #root {
     display: flex;
@@ -113,7 +113,7 @@ button {
 main {
     width: 100%;
     min-height: 100vh;
-    margin: 2rem 2rem 0px;
+    margin: 2rem 0px 0px;
     padding: 0;
     background-color: var(--secondary-main);
 
@@ -129,9 +129,9 @@ main {
 
 /*  */
 
-.PostsContainer {
+.Content {
     width: 85%;
-    margin: 0px 1rem 0px;
+    margin: 0px 2rem 0px 1rem;
     padding: 1rem;
     background-color: var(--primary-main);
 
@@ -143,12 +143,12 @@ main {
 
 .SideBar {
     position: sticky;
-    top: 5rem;
+    top: 7rem;
     left: 0;
 
     width: 15%;
     height: calc(100vh - 60px);
-    margin: 0px 1rem 0px;
+    margin: 0px 1rem 0px 2rem;
     padding: 1rem;
 
     background-color: var(--primary-main);

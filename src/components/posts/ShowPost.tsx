@@ -6,6 +6,7 @@ import { Post } from '../../interfaces';
 import IndexComments from '../comments/IndexComments';
 import "../../styles/ShowPost.css"
 import { useUser } from '../contexts/UserContext';
+import SideBar from '../SideBar';
 
 function ShowPost(): JSX.Element | undefined {
     // Show may return undefined as user may navigate to a different page after deleting the current post for instance
@@ -80,7 +81,9 @@ function ShowPost(): JSX.Element | undefined {
     if (!edit) {
         // Read mode
         return (
-            <div>
+            <>
+            <SideBar/>
+            <div className='Content'>
                 <div className="ShowPostContainer">
                     <div className="PostContent">
                         <h1>{post.topic}</h1>
@@ -97,6 +100,7 @@ function ShowPost(): JSX.Element | undefined {
                 
                 <IndexComments post_id={post.id}/>
             </div>
+            </>
         )
     } else if (edit) {
         // Edit mode

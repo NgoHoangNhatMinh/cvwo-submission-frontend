@@ -4,6 +4,8 @@ import { Post } from '../../interfaces';
 import '../../styles/IndexPosts.css'
 import { InputLabel, FormControl, Select, MenuItem } from '@mui/material';
 import axios from 'axios';
+import SideBar from '../SideBar';
+import { getDateDifference } from '../GlobalFunctions';
 
 function IndexPosts(): JSX.Element {
     const API_URL: string | undefined = import.meta.env.VITE_API_URL;
@@ -54,34 +56,45 @@ function IndexPosts(): JSX.Element {
     }
 
     return (
-        <div className="PostsContainer">
-            <FormControl className='FormControlSelect' sx={{ m: 1, minWidth: 200 }}>
-                <InputLabel id="sort-select-label">Sort By</InputLabel>
-                <Select
-                    className="Select"
-                    labelId="sort-select-label"
-                    id="sort-select"
-                    value={sortOption}
-                    onChange={handleSort}
-                    label="Sort By"
-                >
-                    <MenuItem value="time">Newest</MenuItem>
-                    <MenuItem value="rate">Oldest</MenuItem>
-                </Select>
-            </FormControl>
-            {
-                posts.map((post) => {
-                    return <div className="PostBorder" key={post.id}>
-                        <div onClick={() => navigateToPost(post.id)} className="Post">
-                            <p>{post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1)}</p>
-                            <h2>{"Post " + post.id + " - " + post.topic}</h2>
-                            <p>{post.content}</p>
-                            <p>{new Date(post.created_at).toLocaleDateString()}</p>
+        <>
+            <SideBar/>
+            <div className="Content">
+                <FormControl className='FormControlSelect' sx={{ m: 1, minWidth: 200 }}>
+                    <InputLabel id="sort-select-label">Sort By</InputLabel>
+                    <Select
+                        className="Select"
+                        labelId="sort-select-label"
+                        id="sort-select"
+                        value={sortOption}
+                        onChange={handleSort}
+                    >
+                        <MenuItem value="" disabled>Sort By</MenuItem>  {/* Placeholder */}
+                        <MenuItem value="time">Newest</MenuItem>
+                        <MenuItem value="rate">Oldest</MenuItem>
+                    </Select>
+                </FormControl>
+                {
+                    posts.map((post) => {
+                        const today = new Date();
+                        const postDate = new Date(post.created_at);
+                        const diff = getDateDifference(today, postDate);
+
+                        return <div className="PostBorder" key={post.id}>
+                            <div onClick={() => navigateToPost(post.id)} className="Post">
+                                <div className="PostText">
+                                    <h2>{post.topic}</h2>
+                                    <p>{post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1)}</p>
+                                    <p>{post.content}</p>
+                                </div>
+                                <div className="PostMetadata">
+                                    <p>{diff + " ago"}</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                })
-            }
-        </div>
+                    })
+                }
+            </div>
+        </>
     )
 }
 

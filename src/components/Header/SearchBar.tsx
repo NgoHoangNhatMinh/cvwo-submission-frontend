@@ -33,10 +33,14 @@ export default function SearchBar() {
     >
         <TextField
             className="TextField"
+            variant="outlined"
             id="searchbox"
-            label="Search"
+            placeholder="Search Forum"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            sx={{
+                width: '600px',
+              }}
             slotProps={{
             input: {
                 startAdornment: (
@@ -46,8 +50,7 @@ export default function SearchBar() {
                 ),
             },
             }}
-            variant="outlined"
         />
-        <Button type='submit'>Search</Button>
+        {/* <Button type='submit'>Search</Button> */}
     </FormControl>
 }

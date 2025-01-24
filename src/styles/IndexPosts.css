@@ -10,6 +10,17 @@
     margin: 20px 10px 20px;
     padding: 0px 10px 0px;
     border-radius: 8px;
+
+    display: flex;
+    width: 100%;
+}
+
+.Post .PostText {
+    width: 90%;
+}
+
+.Post .PostMetadata {
+    width: 10%;
 }
 
 .Post:hover {
@@ -23,4 +34,8 @@
 
 .SortContainer {
     position: relative;
+}
+
+.Select .MuiSelect-select {
+    color: var(--primary-text);
 }

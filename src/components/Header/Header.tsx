@@ -2,7 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { useEffect, useState } from "react";
 import { useUser } from "../contexts/UserContext";
-import Logo from '../../assets/cvwo-logo-zip-file/svg/logo-color.svg'
+// import Logo from '../../assets/cvwo-logo-zip-file/svg/logo-color.svg'
+import Logo from '../../assets/logo.jpg'
 import { Avatar, Button, } from "@mui/material";
 import { useTheme } from "../contexts/ThemeContext";
 import axios from "axios";

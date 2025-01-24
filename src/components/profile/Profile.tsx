@@ -30,10 +30,7 @@ function Profile () {
 
     return <div>
         <div className="ProfileContainer">
-            {user?.image_url
-                            ? <Avatar src={user?.image_url} sx={{ width: 150, height: 150 }}></Avatar>
-                            : <Avatar sx={{ width: 150, height: 150 }}>{user?.username}</Avatar>
-                        }
+            <Avatar src={user?.image_url} sx={{ width: 150, height: 150 }}></Avatar>
             <div className="ProfileInfo">
                 <h1>{`${user.username}`}</h1>
                 <p>{`${user.email}`}</p>
