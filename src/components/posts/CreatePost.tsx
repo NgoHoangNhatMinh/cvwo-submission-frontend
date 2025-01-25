@@ -2,8 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Category, PostData } from "../../interfaces";
 import "../../styles/Post.css"
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { Button, FormControl, InputLabel, MenuItem, OutlinedInput, Select, TextField } from "@mui/material";
 import axios from "axios";
+import SideBar from "../SideBar";
 
 function CreatePost(): JSX.Element {
     const API_URL: string | undefined = import.meta.env.VITE_API_URL;
@@ -56,35 +57,86 @@ function CreatePost(): JSX.Element {
     }, [])
 
     return (
-        <div className="CreatePostContainer">
-            <h1>Create new post</h1>
-            <form onSubmit={handleSubmit}>
-                <FormControl sx={{ minWidth: 200, marginBottom: 2 }}>
-                    <InputLabel>Category</InputLabel>
-                    <Select onChange={e => setCategoryID(Number(e.target.value))}>
-                        {categories.map((category => <MenuItem value={category.id} key={category.id}>{category.name}</MenuItem>))}
-                    </Select>
-                </FormControl>
-                <div>
-                    <input 
-                        type="text"
-                        placeholder="Topic"
-                        value={topic}
-                        onChange={e => setTopic(e.target.value)}
-                        required 
-                    />
+        <div className="MainContainer">
+            <SideBar/>
+            <div className="Content">
+                <div className="CreatePostContainer">
+                    <h1>Create new post</h1>
+                    <FormControl
+                        onSubmit={handleSubmit}
+                        className="Form CreatePost"
+                        component="form" // Ensures this acts as a form element
+                        sx={{
+                            m: 1,
+                            minWidth: 200,
+                            display: { xs: 'none', sm: 'flex' },
+                            flexDirection: "column",
+                            gap: 2,
+                            width: '100%',
+                            '& .MuiOutlinedInput-root': {
+                            height: '3rem',
+                            },
+                            '& .MuiSvgIcon-root': {
+                            fontSize: '1rem',
+                            },
+                        }}
+                    >
+                        <FormControl>
+                            <OutlinedInput
+                                className="TextField"
+                                type="text"
+                                id="topic"
+                                placeholder="Topic"
+                                value={topic}
+                                onChange={e => setTopic(e.target.value)}
+                                sx={{
+                                    minWidth: '350px',
+                                }}
+                                required
+                            />
+                        </FormControl>
+                        <FormControl sx={{ minWidth: 200, marginBottom: 2 }}>
+                            <InputLabel>Category</InputLabel>
+                            <Select onChange={e => setCategoryID(Number(e.target.value))}>
+                                {categories.map((category => <MenuItem value={category.id} key={category.id}>{category.name.charAt(0).toUpperCase() + category.name.slice(1)}</MenuItem>))}
+                            </Select>
+                        </FormControl>
+                        <div>
+                            <TextField
+                                fullWidth
+                                id="filled-textarea"
+                                placeholder="Content"
+                                value={content}
+                                onChange={e => setContent(e.target.value)}
+                                multiline
+                                variant="filled"
+                                required
+                            />
+                        </div>
+                        <div className="PostOptions">
+                            <Button
+                                onClick={() => navigate("/")}
+                                variant="contained"
+                                type="submit"
+                                sx={{
+                                    width: '10% !important',
+                                }}
+                            >
+                                    Cancel
+                            </Button>
+                            <Button
+                                variant="contained"
+                                type="submit"
+                                sx={{
+                                    width: '10% !important',
+                                }}
+                            >
+                                    Submit
+                            </Button>
+                        </div>
+                    </FormControl>
                 </div>
-                <div>
-                    <input 
-                        type="text"
-                        placeholder="Content"
-                        value={content}
-                        onChange={e => setContent(e.target.value)}
-                        required 
-                    />
-                </div>
-                <button type="submit">Submit</button>
-            </form>
+            </div>
         </div>
     )
 }

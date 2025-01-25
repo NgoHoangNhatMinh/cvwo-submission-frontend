@@ -91,10 +91,6 @@
     margin: 20px 10px 20px;
 }
 
-.ShowPostContainer {
-    padding: 15px 20px 15px;
-}
-
 .PostTitle {
     display: flex;
     align-items: center;
@@ -107,12 +103,17 @@
 
 /* CREATE POST PAGE */
 
+/* .Content.Background {
+    background-image: var(--background-url);
+    background-color: var(--background);
+    background-blend-mode: lighten;
+} */
+
 .CreatePostContainer {
-    width: 500px;
-    height: 400px;
-    position: relative;
-    /* background-color: #181c1f; */
+    width: 60%;
     border-radius: 8px;
+    /* height: 100%; */
+    background-color: var(--secondary);
 }
 
 .CreatePostContainer button,.CreatePostContainer input {
@@ -124,6 +125,15 @@
 
 .CreatePostContainer h1 {
     font-size: 2rem;
+}
+
+.Form.CreatePost {
+    padding: 0;
+    margin: 0;
+}
+
+.Form .PostOptions {
+    justify-content: end;
 }
 
 /* Old db */

@@ -15,10 +15,6 @@ function Profile () {
     function handleComments() {
         navigate("/user/comments")
     }
-
-    function handleOverview() {
-        navigate("/user")
-    }
     
     if (!user) {
         return (
@@ -31,7 +27,7 @@ function Profile () {
 
     return <>
         <SideBar/>
-        <div className="Content">
+        <div className="Content Profile">
             <div className="ProfileContainer">
                 <Avatar src={user?.image_url} sx={{ width: 150, height: 150 }}></Avatar>
                 <div className="ProfileInfo">
@@ -39,7 +35,6 @@ function Profile () {
                     <p>{`${user.email}`}</p>
                 </div>
             </div>
-            <Button onClick={handleOverview}>Overview</Button>
             <Button onClick={handlePosts}>Posts</Button>
             <Button onClick={handleComments}>Comments</Button>
             <Outlet/>
