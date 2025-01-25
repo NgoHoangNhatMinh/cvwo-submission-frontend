@@ -39,7 +39,7 @@ function Header() {
     }
 
     function handleProfile() {
-        navigate("/user")
+        navigate("/user/posts")
     }
 
     function handleSetting() {

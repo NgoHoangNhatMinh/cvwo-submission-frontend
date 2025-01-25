@@ -22,6 +22,9 @@
 
 .Post .PostMetadata {
     width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .Post.Clickable:hover {
