@@ -29,7 +29,7 @@
     background-color: var(--primary-highlight);
 }
 
-.Post p {
+.Post .PostContent {
     color: var(--secondary-text);
 }
 
