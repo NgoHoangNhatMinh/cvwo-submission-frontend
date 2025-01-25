@@ -7,9 +7,15 @@
   --primary-highlight: #eeeeee;
   --secondary-main: #f9f9fb;
   --secondary-dark: #000000;
-  --secondary-text: grey;
+  --secondary-text: #66747b;
   --outline: #eaeaea;
   --header: #48293e;
+
+  --cat-1: #df191c;
+  --cat-2: rgb(160, 5, 160);
+  --cat-3: blue;
+  --cat-4: rgb(12, 182, 12);
+  --cat-5: #df191c;
 }
 
 [data-theme='dark'] {
