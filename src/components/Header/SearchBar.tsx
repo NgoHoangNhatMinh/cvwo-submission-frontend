@@ -1,4 +1,4 @@
-import { Button, FormControl, InputAdornment, TextField } from "@mui/material";
+import { FormControl, InputAdornment, TextField } from "@mui/material";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
