@@ -28,8 +28,14 @@ export default function SearchBar() {
             flexDirection: "row",
             gap: 2,
             alignItems: "center",
-        }
-    }
+
+            '& .MuiOutlinedInput-root': {
+            height: '36px',
+            },
+            '& .MuiSvgIcon-root': {
+            fontSize: '1rem',
+            },
+        }}
     >
         <TextField
             className="TextField"

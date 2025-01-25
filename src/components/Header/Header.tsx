@@ -27,11 +27,11 @@ function Header() {
     }
 
     function handleLogin() {
-        navigate("/login");
+        navigate("/authentication/login");
     }
 
     function handleSignup() {
-        navigate("/signup");
+        navigate("/authentication/signup");
     }
 
     function handleCreate() {

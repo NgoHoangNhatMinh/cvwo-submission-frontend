@@ -1,0 +1,59 @@
+/* main {
+    margin: 0;
+} */
+
+.LoginContainer,.SignupContainer {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.LoginContainer .LoginButton,.SignupContainer .SignupButton,.LoginContainer input,.SignupContainer input{
+    min-width: 300px;
+    height: 2.5rem;
+    margin: 15px 0px 15px;
+    border-radius: 8px;
+}
+
+.SignupContainer form, .LoginContainer form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.SignupContainer form button{
+    margin: 0;
+}
+
+.LoginContainer h1, .SignupContainer h1 {
+    font-size: 2rem;
+}
+
+.AuthenticationForm {
+    width: 50%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.LoginOption {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding: 1rem;
+}
+
+.Background {
+    background-image: url("../assets/liquid-marble-background-with-golden-gloss-texture/4107774.jpg");
+    width: 50%;
+    flex-grow: 1; /* Makes it fill available space */
+}
+
+@media (max-width: 600px) {
+    main {
+        border: none;
+    }
+}

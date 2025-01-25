@@ -2,12 +2,13 @@ import App from "./App";
 import ShowPost from "./components/posts/ShowPost";
 import CreatePost from "./components/posts/CreatePost";
 import IndexPosts from "./components/posts/IndexPosts";
-import Login from "./components/authorization/Login";
-import Signup from "./components/authorization/Signup";
+import Login from "./components/authentication/Login";
+import Signup from "./components/authentication/Signup";
 import Profile from "./components/profile/Profile";
 import UserPosts from "./components/profile/UserPosts";
 import UserComments from "./components/profile/UserComments";
 import Setting from "./components/Setting";
+import Authentication from "./components/authentication/Authentication";
 
 const routes = [
   {
@@ -27,12 +28,18 @@ const routes = [
         element: <CreatePost />,
       },
       {
-        path: "login",
-        element: <Login />,
-      },
-      {
-        path: "signup",
-        element: <Signup />,
+        path: "authentication",
+        element: <Authentication/>,
+        children: [
+          {
+            path: "login",
+            element: <Login />,
+          },
+          {
+            path: "signup",
+            element: <Signup />,
+          },
+        ]
       },
       {
         path: "user",

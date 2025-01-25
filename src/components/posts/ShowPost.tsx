@@ -86,7 +86,7 @@ function ShowPost(): JSX.Element | undefined {
     const diff = getDateDifference(today, postDate);
 
     return (
-        <>
+        <div className='MainContainer'>
         <SideBar/>
         <div className='Content'>
             <div className="ShowPostContainer">
@@ -117,7 +117,7 @@ function ShowPost(): JSX.Element | undefined {
             </div>
             <IndexComments post_id={post.id}/>
         </div>
-        </>
+        </div>
     )
 }
 

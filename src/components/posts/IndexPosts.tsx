@@ -57,7 +57,7 @@ function IndexPosts(): JSX.Element {
     }
 
     return (
-        <>
+        <div className='MainContainer'>
             <SideBar/>
             <div className="Content">
                 <FormControl className='FormControlSelect' sx={{ m: 1, minWidth: 200 }}>
@@ -101,7 +101,7 @@ function IndexPosts(): JSX.Element {
                     })
                 }
             </div>
-        </>
+        </div>
     )
 }
 
