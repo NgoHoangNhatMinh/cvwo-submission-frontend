@@ -134,10 +134,10 @@ function Login() {
             </Button>
             </div>
         </FormControl>
-    </div>
-    <div className="LoginOption">
-        <p>Don't have an account?</p>
-        <Link to="/authentication/signup">Sign up</Link>
+        <div className="LoginOption">
+          <p>Don't have an account?</p>
+          <Link to="/authentication/signup">Sign up</Link>
+        </div>
     </div>
     </>
 }

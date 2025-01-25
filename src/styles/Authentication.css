@@ -39,11 +39,9 @@
     justify-content: center;
 }
 
-.LoginOption {
+.LoginOption, .SignupOption {
     display: flex;
     gap: 0.5rem;
-    margin-top: auto;
-    padding: 1rem;
 }
 
 .Background {

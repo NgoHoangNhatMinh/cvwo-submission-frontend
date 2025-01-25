@@ -160,10 +160,10 @@ function Signup() {
             </Button>
             </div>
         </FormControl>
-    </div>
-    <div className="LoginOption">
-        <p>Have an account?</p>
-        <Link to="/authentication/login">Log In</Link>
+        <div className="SignupOption">
+            <p>Have an account?</p>
+            <Link to="/authentication/login">Log In</Link>
+        </div>
     </div>
     </>
 
