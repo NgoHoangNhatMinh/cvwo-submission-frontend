@@ -1,7 +1,7 @@
 import './App.css'
 import './styles/Global.css'
 import { Outlet } from 'react-router-dom'
-import Header from './components/header/Header'
+import Header from './components/header/Header.tsx'
 // import Footer from './components/Footer'
 import { AuthProvider } from './components/contexts/AuthContext'
 import { UserProvider } from './components/contexts/UserContext'
