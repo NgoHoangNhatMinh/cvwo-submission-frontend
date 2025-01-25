@@ -68,7 +68,7 @@ function ShowPost(): JSX.Element | undefined {
 
     // While waiting to fetch post data from the server
     if (loading) {
-        return <div>Loading...</div>
+        return <div className='MainContainer'>Loading...</div>
     }
 
     // If there are no post with this id

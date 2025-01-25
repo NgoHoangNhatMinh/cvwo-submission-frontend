@@ -70,6 +70,15 @@
     gap: 0.5rem;
 }
 
+.PostText .Category {
+    margin: 0;
+    font-size: small;
+}
+
+.PostText h2 {
+    margin-bottom: 0.5rem;
+}
+
 /* SHOW INDIVIDUAL POST */
 
 .ShowPostContainer {

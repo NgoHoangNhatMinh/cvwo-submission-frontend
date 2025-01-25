@@ -49,7 +49,7 @@ function IndexPosts(): JSX.Element {
     }
 
     if (loading) {
-        return <div>Loading...</div>
+        return <div className='MainContainer'>Loading...</div>
     }
 
     if (!posts) {
@@ -84,7 +84,7 @@ function IndexPosts(): JSX.Element {
                             <div onClick={() => navigateToPost(post.id)} className="Post Clickable">
                                 <div className="PostText">
                                     <h2>{post.topic}</h2>
-                                    <p className={post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1) + "Category"}>
+                                    <p className={post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1) + "Category Category"}>
                                         {post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1)}
                                     </p>
                                     <p className='PostContent'>{post.content}</p>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { AccountCircle } from "@mui/icons-material";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import SideBar from "./SideBar";
 
 export default function Setting() {
     const API_URL: string | undefined = import.meta.env.VITE_API_URL;
@@ -57,62 +58,66 @@ export default function Setting() {
         }
     }
 
-    return <div className="SettingContainer">
-            <h1>Setting</h1>
-            <h2>Edit user information</h2>
-
-            <FormControl
-                className="Form"
-                component="form" // Ensures this acts as a form element
-                onSubmit={handleUpdateProfile}
-                sx={{
-                    m: 1,
-                    minWidth: 200,
-                    display: { xs: 'none', sm: 'flex' },
-                    flexDirection: "row",
-                    gap: 2,
-                    alignItems: "center",
-                }
-            }
-            >
-                <TextField
-                    className="TextField"
-                    id="usernamebox"
-                    label="Update Username"
-                    value={user.username}
-                    onChange={e => setUser({...user, username: e.target.value})}
-                    slotProps={{
-                    input: {
-                        startAdornment: (
-                        <InputAdornment position="start">
-                            <AccountCircle />
-                        </InputAdornment>
-                        ),
-                    },
-                    }}
-                    variant="outlined"
-                />
-
-                <Button
-                component="label"
-                role={undefined}
-                variant="contained"
-                tabIndex={-1}
-                startIcon={<CloudUploadIcon />}
-                >
-                Upload files
-                <VisuallyHiddenInput
-                    type="file"
-                    onChange={e => setImage(e.target.files)}
-                    multiple
-                />
-                </Button>
-
-                <Button type="submit">Update</Button>
-            </FormControl>
-            {/* <Select
-            >
-                <MenuItem>1</MenuItem>
-            </Select> */}
+    return <>
+        <div className="MainContainer">
+            <SideBar/>
+            <div className="Content">
+                <div className="SettingContainer">
+                    <h1>Setting</h1>
+                    <h2>Edit user information</h2>
+                    <FormControl
+                        className="Form"
+                        component="form" // Ensures this acts as a form element
+                        onSubmit={handleUpdateProfile}
+                        sx={{
+                            m: 1,
+                            minWidth: 200,
+                            display: { xs: 'none', sm: 'flex' },
+                            flexDirection: "row",
+                            gap: 2,
+                            alignItems: "center",
+                        }
+                    }
+                    >
+                        <TextField
+                            className="TextField"
+                            id="usernamebox"
+                            label="Update Username"
+                            value={user.username}
+                            onChange={e => setUser({...user, username: e.target.value})}
+                            slotProps={{
+                            input: {
+                                startAdornment: (
+                                <InputAdornment position="start">
+                                    <AccountCircle />
+                                </InputAdornment>
+                                ),
+                            },
+                            }}
+                            variant="outlined"
+                        />
+                        <Button
+                        component="label"
+                        role={undefined}
+                        variant="contained"
+                        tabIndex={-1}
+                        startIcon={<CloudUploadIcon />}
+                        >
+                        Upload files
+                        <VisuallyHiddenInput
+                            type="file"
+                            onChange={e => setImage(e.target.files)}
+                            multiple
+                        />
+                        </Button>
+                        <Button type="submit">Update</Button>
+                    </FormControl>
+                    {/* <Select
+                    >
+                        <MenuItem>1</MenuItem>
+                    </Select> */}
+                </div>
+            </div>
         </div>
+    </>
 }
