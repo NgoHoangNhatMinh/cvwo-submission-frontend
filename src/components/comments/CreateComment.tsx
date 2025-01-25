@@ -33,7 +33,6 @@ function CreateComment({post_id, handleNew, navigate}: {post_id: number, handleN
                 navigate("/login")
             } else {
                 handleNew(response.data);
-                alert("Comment created successfully!");
             }
         } catch(e) {
             alert('Failed to create comment');

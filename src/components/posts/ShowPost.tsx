@@ -4,9 +4,10 @@ import DestroyPost from './DestroyPost';
 import UpdatePost from './UpdatePost';
 import { Post } from '../../interfaces';
 import IndexComments from '../comments/IndexComments';
-import "../../styles/ShowPost.css"
+import "../../styles/Post.css"
 import { useUser } from '../contexts/UserContext';
 import SideBar from '../SideBar';
+import { getDateDifference } from '../GlobalFunctions';
 
 function ShowPost(): JSX.Element | undefined {
     // Show may return undefined as user may navigate to a different page after deleting the current post for instance
@@ -80,14 +81,26 @@ function ShowPost(): JSX.Element | undefined {
 
     if (!edit) {
         // Read mode
+        const today = new Date();
+        const postDate = new Date(post.created_at);
+        const diff = getDateDifference(today, postDate);
+
         return (
             <>
             <SideBar/>
             <div className='Content'>
                 <div className="ShowPostContainer">
-                    <div className="PostContent">
-                        <h1>{post.topic}</h1>
-                        <p>{post.content}</p>
+                    <div className="Post">
+                        <div className="PostText">
+                            <h2>{post.topic}</h2>
+                            <p className="PostUser">{post.user.username}</p>
+                            <p className={post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1) + "Category"}>
+                                {post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1)}</p>
+                            <p className='PostContent'>{post.content}</p>
+                        </div>
+                        <div className="PostMetadata">
+                            <p>{diff + " ago"}</p>
+                        </div>
                     </div>
                     {user !== undefined && user.id === post.user_id 
                         ?   <div className="PostOptions">

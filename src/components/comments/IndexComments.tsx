@@ -41,9 +41,15 @@ function IndexComments({post_id}: {post_id: number}): JSX.Element {
 
     // So that updated comment appears immediately without having to reload page to fetch from server
     function handleChange(updatedContent: string, id: number) {
+        if (!user) {
+            return;
+        }
         setComments(prevComments => prevComments.map(
             comment => comment.id === id
-                ? {...comment, content: updatedContent}
+                ? {
+                    ...comment, 
+                    content: updatedContent, 
+                 }
                 : comment 
         ))
     }
@@ -79,7 +85,6 @@ function IndexComments({post_id}: {post_id: number}): JSX.Element {
     }
 
     // Display most recent 10 comments
-    const firstTenComments: Comment[] = comments.slice(0, 10);
 
     return (
         <div className="CommentsContainer">
@@ -87,7 +92,7 @@ function IndexComments({post_id}: {post_id: number}): JSX.Element {
             <div className="IndexComments">
                 <h4>Comments</h4>
                 {
-                    firstTenComments.map((comment) => {
+                    comments.map((comment) => {
                         if (!edit[comment.id]) {
                             return <div key={comment.id} className='Comment'>
                                 <Avatar src={user?.image_url} alt="" className='UserAvatar'/>

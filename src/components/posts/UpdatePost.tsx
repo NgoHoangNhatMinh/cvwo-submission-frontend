@@ -47,7 +47,6 @@ function UpdatePost({post, handleEditState, handleChange, navigate}:
                 navigate("/login")
             } else {
                 handleChange(topic, content);
-                alert("Update successfully");
             }
         } catch (error) {
             alert("Failed to update post");

@@ -9,7 +9,12 @@ export interface Post {
     category: {
         name: string;
         id: number
-    }
+    };
+    user: {
+        id: number;
+        username: string;
+    };
+    comment_count: number
 }
 
 export interface PostData {
@@ -30,6 +35,7 @@ export interface Comment {
     user: {
         username: string
     }
+    post: Post;
 }
 
 export interface CommentData {

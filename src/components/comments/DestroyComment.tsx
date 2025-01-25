@@ -24,7 +24,6 @@ async function DestroyComment(comment: Comment | undefined, navigate: any): Prom
             alert("You must log in first")
             navigate("/login")
         } else {
-            alert("Comment deleted successfully!");
             return true;
         }
     } catch(e) {

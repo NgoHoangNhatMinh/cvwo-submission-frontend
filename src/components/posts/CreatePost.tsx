@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Category, PostData } from "../../interfaces";
-import "../../styles/CreatePost.css"
+import "../../styles/Post.css"
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import axios from "axios";
 
@@ -40,7 +40,6 @@ function CreatePost(): JSX.Element {
                 alert("You must log in first")
                 navigate("/login")
             } else {
-                alert("Post created successfully!");
                 navigate(`/posts/${response.data.id}`);
             }
         } catch(e) {

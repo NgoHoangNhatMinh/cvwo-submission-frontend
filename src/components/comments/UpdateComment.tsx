@@ -37,8 +37,6 @@ function UpdateComment(
             if (response.status === 401) {
                 alert("You must log in first")
                 navigate("/login")
-            } else {
-                alert("Update successfully");
             }
         } catch (error) {
             alert("Failed to update comment");

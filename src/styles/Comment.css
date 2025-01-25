@@ -25,6 +25,10 @@
     gap: 10px;
 }
 
+.CommentContent {
+    padding-left: 2rem;
+}
+
 /* ADD COMMENT */
 
 .AddComment {

@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Post } from '../../interfaces';
-import '../../styles/IndexPosts.css'
+import '../../styles/Post.css'
 import { InputLabel, FormControl, Select, MenuItem } from '@mui/material';
 import axios from 'axios';
 import SideBar from '../SideBar';
 import { getDateDifference } from '../GlobalFunctions';
+import ChatIcon from '@mui/icons-material/Chat';
 
 function IndexPosts(): JSX.Element {
     const API_URL: string | undefined = import.meta.env.VITE_API_URL;
@@ -80,15 +81,20 @@ function IndexPosts(): JSX.Element {
                         const diff = getDateDifference(today, postDate);
 
                         return <div className="PostBorder" key={post.id}>
-                            <div onClick={() => navigateToPost(post.id)} className="Post">
+                            <div onClick={() => navigateToPost(post.id)} className="Post Clickable">
                                 <div className="PostText">
                                     <h2>{post.topic}</h2>
                                     <p className={post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1) + "Category"}>
-                                        {post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1)}</p>
+                                        {post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1)}
+                                    </p>
                                     <p className='PostContent'>{post.content}</p>
                                 </div>
                                 <div className="PostMetadata">
                                     <p>{diff + " ago"}</p>
+                                    <div className="CommentCount">
+                                        <ChatIcon/>
+                                        <p>{post.comment_count}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -3,16 +3,27 @@ import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import HomeIcon from '@mui/icons-material/Home';
 import SchoolIcon from '@mui/icons-material/School';
 import GrainIcon from '@mui/icons-material/Grain';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export default function SideBar() {
     const [searchParams, setSearchParams] = useSearchParams();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     function queryCategory(event: any) {
         const category = event.target.closest('div').querySelector('p').innerText.toLowerCase();
         const newParams = new URLSearchParams(searchParams); // Clone existing params
         newParams.set("category", category.toLowerCase()); // Add or update the "q" parameter
-        setSearchParams(newParams); // Update the URL with the new parameters
+
+        if (location.pathname === "/") {
+            setSearchParams(newParams); // Update the URL with the new parameters
+        } else {
+            navigate({
+                pathname: "/",
+                search: newParams.toString(),
+            });
+        }
     }
 
     return <div className="SideBar">

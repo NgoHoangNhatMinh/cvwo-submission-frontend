@@ -2,6 +2,7 @@ import { useUser } from "../contexts/UserContext";
 import { Outlet, useNavigate } from "react-router-dom";
 import "../../styles/Profile.css"
 import { Avatar, Button } from "@mui/material";
+import SideBar from "../SideBar";
 
 function Profile () {
     const {user} = useUser();
@@ -28,19 +29,22 @@ function Profile () {
         )
     }
 
-    return <div>
-        <div className="ProfileContainer">
-            <Avatar src={user?.image_url} sx={{ width: 150, height: 150 }}></Avatar>
-            <div className="ProfileInfo">
-                <h1>{`${user.username}`}</h1>
-                <p>{`${user.email}`}</p>
+    return <>
+        <SideBar/>
+        <div className="Content">
+            <div className="ProfileContainer">
+                <Avatar src={user?.image_url} sx={{ width: 150, height: 150 }}></Avatar>
+                <div className="ProfileInfo">
+                    <h1>{`${user.username}`}</h1>
+                    <p>{`${user.email}`}</p>
+                </div>
             </div>
+            <Button onClick={handleOverview}>Overview</Button>
+            <Button onClick={handlePosts}>Posts</Button>
+            <Button onClick={handleComments}>Comments</Button>
+            <Outlet/>
         </div>
-        <Button onClick={handleOverview}>Overview</Button>
-        <Button onClick={handlePosts}>Posts</Button>
-        <Button onClick={handleComments}>Comments</Button>     
-        <Outlet/>
-    </div>
+    </>
 }
 
 export default Profile;

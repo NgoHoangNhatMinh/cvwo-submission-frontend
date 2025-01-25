@@ -24,7 +24,6 @@ async function DestroyPost(post: Post | undefined, navigate: any): Promise<boole
             alert("You must log in first")
             navigate("/login")
         } else {
-            alert("Post deleted successfully!");
             return true;
         }
     } catch(e) {
