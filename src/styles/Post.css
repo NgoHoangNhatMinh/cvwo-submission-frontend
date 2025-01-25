@@ -95,6 +95,16 @@
     padding: 15px 20px 15px;
 }
 
+.PostTitle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.EditPostContainer {
+    margin: 1rem 0px 1rem;
+}
+
 /* CREATE POST PAGE */
 
 .CreatePostContainer {

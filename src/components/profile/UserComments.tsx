@@ -13,7 +13,7 @@ function UserComments() {
     useEffect(() => { 
         if (user) {
             try {
-                axios.get(`${API_URL}/user/${user.id}/comments`)
+                axios.get(`${API_URL}/users/${user.id}/comments`)
                     .then(response => setComments(response.data))
             } catch (error: any) {
             }

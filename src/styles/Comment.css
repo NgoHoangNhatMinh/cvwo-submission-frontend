@@ -29,6 +29,19 @@
     padding-left: 2rem;
 }
 
+.CommentTitle {
+    display: flex;
+    align-items: center;
+}
+
+.CommentInfo {
+    flex: 1;
+}
+
+.EditCommentContainer {
+    margin: 1rem 0px 1rem;
+}
+
 /* ADD COMMENT */
 
 .AddComment {

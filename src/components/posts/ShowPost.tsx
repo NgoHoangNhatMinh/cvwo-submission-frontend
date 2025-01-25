@@ -8,6 +8,8 @@ import "../../styles/Post.css"
 import { useUser } from '../contexts/UserContext';
 import SideBar from '../SideBar';
 import { getDateDifference } from '../GlobalFunctions';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import CrudMenu from '../CrudMenu';
 
 function ShowPost(): JSX.Element | undefined {
     // Show may return undefined as user may navigate to a different page after deleting the current post for instance
@@ -33,8 +35,8 @@ function ShowPost(): JSX.Element | undefined {
     }
 
     // Toggle between edit mode and read mode
-    function handleEditState(): void {
-        setEdit(!edit);
+    function handleEditState(state: boolean): void {
+        setEdit(state);
     }
 
     // After user edit the post information, handleChange fetch the new title and new content
@@ -79,49 +81,45 @@ function ShowPost(): JSX.Element | undefined {
         return <div>{error}</div>;
     }
 
-    if (!edit) {
-        // Read mode
-        const today = new Date();
-        const postDate = new Date(post.created_at);
-        const diff = getDateDifference(today, postDate);
 
-        return (
-            <>
-            <SideBar/>
-            <div className='Content'>
-                <div className="ShowPostContainer">
-                    <div className="Post">
-                        <div className="PostText">
+    const today = new Date();
+    const postDate = new Date(post.created_at);
+    const diff = getDateDifference(today, postDate);
+
+    return (
+        <>
+        <SideBar/>
+        <div className='Content'>
+            <div className="ShowPostContainer">
+                <div className="Post">
+                    <div className="PostText">
+                        <div className="PostTitle">
                             <h2>{post.topic}</h2>
-                            <p className="PostUser">{post.user.username}</p>
-                            <p className={post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1) + "Category"}>
-                                {post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1)}</p>
-                            <p className='PostContent'>{post.content}</p>
+                            {user !== undefined && user.id === post.user_id
+                                ?   <CrudMenu handleEditState={handleEditState} handleDelete={handleDelete}/>
+                                : <></>
+                            }
                         </div>
-                        <div className="PostMetadata">
-                            <p>{diff + " ago"}</p>
-                        </div>
+                        <p className="PostUser">{post.user.username}</p>
+                        <p className={post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1) + "Category"}>
+                            {post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1)}
+                        </p>
+                        {
+                            !edit
+                                ? <p className='PostContent'>{post.content}</p>
+                                : <UpdatePost post={post} handleEditState={handleEditState} handleChange={handleChange} navigate={navigate}/>
+
+                        }
                     </div>
-                    {user !== undefined && user.id === post.user_id 
-                        ?   <div className="PostOptions">
-                                <button onClick={handleEditState}>Edit</button>
-                                <button onClick={handleDelete}>Delete</button>
-                            </div>
-                        : <div></div>
-                    }
+                    <div className="PostMetadata">
+                        <p>{diff + " ago"}</p>
+                    </div>
                 </div>
-                
-                <IndexComments post_id={post.id}/>
             </div>
-            </>
-        )
-    } else if (edit) {
-        // Edit mode
-        return <div>
-            {/* React component cannot be defined as asynchronous function */}
-            <UpdatePost post={post} handleEditState={handleEditState} handleChange={handleChange} navigate={navigate}/>
+            <IndexComments post_id={post.id}/>
         </div>
-    }
+        </>
+    )
 }
 
 export default ShowPost;

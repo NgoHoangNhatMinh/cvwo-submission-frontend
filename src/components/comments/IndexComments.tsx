@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 import axios from 'axios';
 import { Avatar } from '@mui/material';
+import CrudMenu from '../CrudMenu';
 
 function IndexComments({post_id}: {post_id: number}): JSX.Element {
     const API_URL: string | undefined = import.meta.env.VITE_API_URL;
@@ -93,27 +94,25 @@ function IndexComments({post_id}: {post_id: number}): JSX.Element {
                 <h4>Comments</h4>
                 {
                     comments.map((comment) => {
-                        if (!edit[comment.id]) {
-                            return <div key={comment.id} className='Comment'>
-                                <Avatar src={user?.image_url} alt="" className='UserAvatar'/>
-                                <div className="CommentInfo">
+                        return <div key={comment.id} className='Comment'>
+                            <Avatar src={user?.image_url} alt="" className='UserAvatar'/>
+                            <div className="CommentInfo">
+                                <div className="CommentTitle">
                                     <p className='CommentUser'>{comment.user.username}</p>
-                                    <p>{comment.content}</p>
+                                    {
+                                        user !== undefined && comment.user_id === user.id
+                                            ? <CrudMenu handleEditState={() => handleEdit(comment)} handleDelete={() => handleDelete(comment)}/>
+                                            : <></>
+                                    }
                                 </div>
                                 {
-                                    user !== undefined && comment.user_id === user.id
-                                        ?   <div className="CommentOptions">
-                                                <button onClick={() => handleEdit(comment)}>Edit</button>
-                                                <button onClick={() => handleDelete(comment)}>Delete</button>
-                                            </div>
-                                        : <></>
+                                    !edit[comment.id]
+                                        ? <p>{comment.content}</p>
+                                        : <UpdateComment comment={comment} handleEditState={handleEdit} handleChange={handleChange} navigate={navigate}/>
+
                                 }
                             </div>
-                        } else {
-                            return <div>
-                                <UpdateComment comment={comment} handleEditState={handleEdit} handleChange={handleChange} navigate={navigate}/>
-                            </div>
-                        }
+                        </div>
                     })
                 }
             </div>

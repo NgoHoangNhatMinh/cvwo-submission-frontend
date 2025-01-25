@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Comment, CommentData } from "../../interfaces";
 import axios from "axios";
+import { TextField } from "@mui/material";
 
 function UpdateComment(
     {comment, handleEditState, handleChange, navigate}: 
@@ -48,7 +49,19 @@ function UpdateComment(
 
     return <div>
         <form onSubmit={handleSubmit}>
-            <input type="textbox" value={content} onChange={e => setContent(e.target.value)}/>
+            <div className="EditCommentContainer">
+                <TextField
+                    fullWidth
+                    id="filled-textarea"
+                    placeholder="Type your comment here"
+                    value={content}
+                    onChange={e => setContent(e.target.value)}
+                    multiline
+                    variant="filled"
+                    required
+                />
+            </div>
+            <button onClick={() => {handleEditState(comment)}}>Cancel</button>
             <button type="submit">Submit</button>
         </form>
     </div>

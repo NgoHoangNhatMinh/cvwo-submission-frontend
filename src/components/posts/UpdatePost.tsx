@@ -1,11 +1,12 @@
 import axios from "axios";
 import { Post, PostData } from "../../interfaces";
 import { useState } from "react";
+import { TextField } from "@mui/material";
 
 function UpdatePost({post, handleEditState, handleChange, navigate}: 
     {
         post: Post | undefined, 
-        handleEditState: () => void, 
+        handleEditState: (state: boolean) => void, 
         handleChange: (topic: string, content: string) => void, 
         navigate: any}): JSX.Element {
     // To return early for empty post
@@ -15,7 +16,7 @@ function UpdatePost({post, handleEditState, handleChange, navigate}:
         </div>;
     }
 
-    const [topic, setTopic] = useState<string>(post.topic);
+    const [topic] = useState<string>(post.topic);
     const [content, setContent] = useState<string>(post.content);
 
     const API_URL: string | undefined = import.meta.env.VITE_API_URL;
@@ -52,32 +53,26 @@ function UpdatePost({post, handleEditState, handleChange, navigate}:
             alert("Failed to update post");
         }
         // Toggle back to read mode
-        handleEditState();
+        handleEditState(false);
         // Update post topic and content in read mode
     }
 
     return (
         <div>
-            <h1>Editing...</h1>
             <form onSubmit={handleUpdate}>
-            <div>
-                    <label >Topic: </label>
-                    <input 
-                        type="text"
-                        value={topic}
-                        onChange={e => setTopic(e.target.value)}
-                        required 
-                    />
-                </div>
-                <div>
-                    <label >Content: </label>
-                    <input 
-                        type="text"
+                <div className="EditPostContainer">
+                    <TextField
+                        fullWidth
+                        id="filled-textarea"
+                        placeholder="Type your content here"
                         value={content}
                         onChange={e => setContent(e.target.value)}
+                        multiline
+                        variant="filled"
                         required 
                     />
                 </div>
+                <button onClick={() => handleEditState(false)}>Cancel</button>
                 <button type="submit">Submit</button>
             </form>
         </div>
