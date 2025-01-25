@@ -36,7 +36,7 @@ function UserPosts() {
     }
     
     return <div>
-        <h1>User's posts</h1>
+        <h1>Your posts</h1>
         {
             posts.length > 0
                 ? posts.map(post => {
@@ -55,9 +55,6 @@ function UserPosts() {
                             </div>
                             <div className="PostMetadata">
                                 <p>{diff + " ago"}</p>
-                                <div className="CommentCount">
-                                    <p>{post.comment_count}</p>
-                                </div>
                             </div>
                         </div>
                     </div>

@@ -3,11 +3,17 @@ import { useUser } from "../contexts/UserContext";
 import { Comment } from "../../interfaces";
 import axios from "axios";
 import { getDateDifference } from "../GlobalFunctions";
+import { useNavigate } from "react-router-dom";
 
 function UserComments() {
     const {user} = useUser();
+    const navigate = useNavigate();
     const API_URL: string | undefined = import.meta.env.VITE_API_URL;
     const [comments, setComments] = useState<Comment[]>([])
+
+    function navigateToPost(id: number) {
+        navigate(`/posts/${id}`);
+    }
 
     // Get current user's comments data
     useEffect(() => { 
@@ -30,7 +36,7 @@ function UserComments() {
     }
     
     return <div>
-        <h1>User's comments</h1>
+        <h1>Your comments</h1>
         {
             comments.length > 0
                 ? comments.map(comment => {
@@ -40,13 +46,30 @@ function UserComments() {
 
                     console.log(comment);
 
-                    return <div key={comment.id}>
-                        <h4 className="CommentTitle">{comment.post.topic}</h4>
+                    // return <div className="PostBorder" key={comment.id}>
+                    //     <div onClick={() => navigateToPost(comment.post.id)} className="Post Clickable">
+                    //         <div className="PostText">
+                    //             <h2>{comment.post.topic}</h2>
+                    //             <p className={comment.post.category.name.charAt(0).toUpperCase() + comment.post.category.name.slice(1) + "Category"}>
+                    //                 {comment.post.category.name.charAt(0).toUpperCase() + comment.post.category.name.slice(1)}
+                    //             </p>
+                    //             <p className='PostContent'>{comment.post.content}</p>
+                    //         </div>
+                    //         <div className="PostMetadata">
+                    //             <p>{diff + " ago"}</p>
+                    //         </div>
+                    //     </div>
+                    // </div>
+
+                    return <div key={comment.id} onClick={() => navigateToPost(comment.post.id)} className="Comment Clickable">
+                        <h2 className="CommentTitle">{comment.post.topic}</h2>
                         <div className="CommentContent">
                             <p>{comment.user.username + " - " + diff + " ago"}</p>
                             {comment.content}
                         </div>
-                    </div>})
+                    </div>
+                    
+                    })
                 : <p>No comments available</p>
         }
     </div>
