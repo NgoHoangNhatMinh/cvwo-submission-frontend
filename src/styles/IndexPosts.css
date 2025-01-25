@@ -33,33 +33,33 @@
     color: var(--secondary-text);
 }
 
-.Post .academicCategory, .Post .adviceCategory, .Post .accomodationCategory, .Post .courseCategory, .Post .miscellaneousCategory {
+.Post .AcademicCategory, .Post .AdviceCategory, .Post .AccomodationCategory, .Post .CourseCategory, .Post .MiscellaneousCategory {
     display: inline-block;
     padding: 0.5rem;
     border-radius: 20px;
 }
 
-.Post .academicCategory {
+.Post .AcademicCategory {
     border: 1px solid var(--cat-1);
     color: var(--cat-1);
 }
 
-.Post .adviceCategory {
+.Post .AdviceCategory {
     border: 1px solid var(--cat-2);
     color: var(--cat-2);
 }
 
-.Post .accomodationCategory {
+.Post .AccomodationCategory {
     border: 1px solid var(--cat-3);
     color: var(--cat-3);
 }
 
-.Post .courseCategory {
+.Post .CourseCategory {
     border: 1px solid var(--cat-4);
     color: var(--cat-4);
 }
 
-.Post .miscellaneousCategory {
+.Post .MiscellaneousCategory {
     border: 1px solid var(--cat-5);
     color: var(--cat-5);
 }

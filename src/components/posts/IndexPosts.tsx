@@ -83,7 +83,8 @@ function IndexPosts(): JSX.Element {
                             <div onClick={() => navigateToPost(post.id)} className="Post">
                                 <div className="PostText">
                                     <h2>{post.topic}</h2>
-                                    <p className={post.category.name + "Category"}>{post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1)}</p>
+                                    <p className={post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1) + "Category"}>
+                                        {post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1)}</p>
                                     <p className='PostContent'>{post.content}</p>
                                 </div>
                                 <div className="PostMetadata">
