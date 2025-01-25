@@ -8,7 +8,6 @@ import "../../styles/Post.css"
 import { useUser } from '../contexts/UserContext';
 import SideBar from '../SideBar';
 import { getDateDifference } from '../GlobalFunctions';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import CrudMenu from '../CrudMenu';
 
 function ShowPost(): JSX.Element | undefined {
