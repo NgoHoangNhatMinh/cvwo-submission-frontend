@@ -64,14 +64,14 @@ function ShowPost(): JSX.Element | undefined {
             .catch(error => setError(error.message))
     }, []);
 
-    // If there are no post with this id
-    if (!post) {
-        return <div>There are no such post</div>
-    }
-
     // While waiting to fetch post data from the server
     if (loading) {
         return <div>Loading...</div>
+    }
+
+    // If there are no post with this id
+    if (!post) {
+        return <div>There are no such post</div>
     }
 
     if (error) {
