@@ -4,6 +4,7 @@ import { Comment } from "../../interfaces";
 import axios from "axios";
 import { getDateDifference } from "../GlobalFunctions";
 import { useNavigate } from "react-router-dom";
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 function UserComments() {
     const {user} = useUser();
@@ -44,28 +45,21 @@ function UserComments() {
                     const postDate = new Date(comment.created_at);
                     const diff = getDateDifference(today, postDate);
 
-                    console.log(comment);
-
-                    // return <div className="PostBorder" key={comment.id}>
-                    //     <div onClick={() => navigateToPost(comment.post.id)} className="Post Clickable">
-                    //         <div className="PostText">
-                    //             <h2>{comment.post.topic}</h2>
-                    //             <p className={comment.post.category.name.charAt(0).toUpperCase() + comment.post.category.name.slice(1) + "Category"}>
-                    //                 {comment.post.category.name.charAt(0).toUpperCase() + comment.post.category.name.slice(1)}
-                    //             </p>
-                    //             <p className='PostContent'>{comment.post.content}</p>
-                    //         </div>
-                    //         <div className="PostMetadata">
-                    //             <p>{diff + " ago"}</p>
-                    //         </div>
-                    //     </div>
-                    // </div>
-
-                    return <div key={comment.id} onClick={() => navigateToPost(comment.post.id)} className="Comment Clickable">
-                        <h2 className="CommentTitle">{comment.post.topic}</h2>
-                        <div className="CommentContent">
-                            <p>{comment.user.username + " - " + diff + " ago"}</p>
-                            {comment.content}
+                    return <div className="CommentBorder" key={comment.id}>
+                        <div onClick={() => navigateToPost(comment.post.id)} className="Comment Clickable">
+                            <h2 className="CommentTitle">{comment.post.topic}</h2>
+                            <div className="CommentContent">
+                                <div className="CommentUser">
+                                    <em>{comment.user.username}</em>
+                                    <FiberManualRecordIcon
+                                        sx={{
+                                            fontSize: "0.5rem"
+                                        }}
+                                    />
+                                    <p>{diff + " ago"}</p>
+                                </div>
+                                {comment.content}
+                            </div>
                         </div>
                     </div>
                     

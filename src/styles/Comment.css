@@ -51,15 +51,3 @@
     border-radius: 0;
     padding: 10px 0px 15px;
 }
-
-/* PROFILE COMMENTS */
-
-.Comment {
-    padding: 0px 1rem 0px;
-    border-radius: 10px;
-}
-
-.Comment.Clickable:hover {
-    cursor: pointer;
-    background-color: var(--primary-highlight);
-}

@@ -26,18 +26,20 @@ function Profile () {
     }
 
     return <>
-        <SideBar/>
-        <div className="Content Profile">
-            <div className="ProfileContainer">
-                <Avatar src={user?.image_url} sx={{ width: 150, height: 150 }}></Avatar>
-                <div className="ProfileInfo">
-                    <h1>{`${user.username}`}</h1>
-                    <p>{`${user.email}`}</p>
+        <div className="MainContainer">
+            <SideBar/>
+            <div className="Content Profile">
+                <div className="ProfileContainer">
+                    <Avatar src={user?.image_url} sx={{ width: 150, height: 150 }}></Avatar>
+                    <div className="ProfileInfo">
+                        <h1>{`${user.username}`}</h1>
+                        <p>{`${user.email}`}</p>
+                    </div>
                 </div>
+                <Button onClick={handlePosts}>Posts</Button>
+                <Button onClick={handleComments}>Comments</Button>
+                <Outlet/>
             </div>
-            <Button onClick={handlePosts}>Posts</Button>
-            <Button onClick={handleComments}>Comments</Button>
-            <Outlet/>
         </div>
     </>
 }
