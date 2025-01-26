@@ -89,13 +89,12 @@ function Header() {
 
         // Set theme based on existing preference
         const isDark = localStorage.getItem('is_dark');
-        if (isDark === null) {
+        if (isDark === null || isDark === "false") {
             setIsDarkMode(false);
             setLogo('../../../public/cvwo-logo-text.svg')
         } else {
-            setIsDarkMode(isDark === "true");
+            setIsDarkMode(true);
             setLogo('../../../public/cvwo-logo-text-light.svg')
-
         } 
     }, [])
 
