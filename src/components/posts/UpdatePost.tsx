@@ -72,8 +72,10 @@ function UpdatePost({post, handleEditState, handleChange, navigate}:
                         required 
                     />
                 </div>
-                <button onClick={() => handleEditState(false)}>Cancel</button>
-                <button type="submit">Submit</button>
+                <div className="UpdateOptions">
+                    <button onClick={() => handleEditState(false)}>Cancel</button>
+                    <button type="submit">Submit</button>
+                </div>
             </form>
         </div>
     )

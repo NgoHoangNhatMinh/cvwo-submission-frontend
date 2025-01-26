@@ -161,3 +161,10 @@
 .Select .MuiSelect-select {
     color: var(--primary-text);
 }
+
+/* UPDATE POST */
+
+.UpdateOptions {
+    display: flex;
+    gap: 1rem;
+}
