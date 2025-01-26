@@ -67,4 +67,12 @@
     main {
         border: none;
     }
+
+    .Background {
+        display: none;
+    }
+
+    .AuthenticationForm {
+        width: 100%;
+    }
 }
