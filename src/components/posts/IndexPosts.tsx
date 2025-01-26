@@ -47,7 +47,7 @@ function IndexPosts(): JSX.Element {
     if (error) {
         if (error === "Network Error") {
             return <div className='MainContainer'>
-                <p>{error}</p>
+                <p>{error}</p><br />
                 <p>Please wait a while for server to start and try again</p>
             </div>
         }
