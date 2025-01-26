@@ -1,4 +1,4 @@
-import { Avatar, Button, FormControl, IconButton, InputAdornment, TextField, Tooltip } from "@mui/material";
+import { Avatar, Button, FormControl, IconButton, InputAdornment, OutlinedInput, TextField, Tooltip } from "@mui/material";
 import { useUser } from "./contexts/UserContext";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -99,7 +99,7 @@ export default function Setting() {
                         </div>
 
                         <TextField
-                            className="TextField"
+                            className="CustomTextField"
                             id="usernamebox"
                             label="Update Username"
                             value={user.username}

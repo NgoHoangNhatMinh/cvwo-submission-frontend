@@ -65,17 +65,13 @@ button {
 }
 
 /* I use the specific identifier of different MUI element through the inspector to toggle themes */
-.FormControlSelect .MuiInputLabel-root, .MuiInputAdornment-root, .MuiInputBase-input::placeholder, .MuiInputBase-root .MuiSelect-select,
-.TextField .MuiInputLabel-root, .css-2u11ia-MuiInputBase-input-MuiOutlinedInput-input, .css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input {
+input, textarea, .FormControlSelect .MuiInputLabel-root, .MuiInputAdornment-root, .MuiInputBase-input::placeholder, .MuiInputBase-root .MuiSelect-select,
+.TextField .MuiInputLabel-root {
     color: var(--primary-text) !important;
 }
 
-.CustomLabel {
+.CustomLabel, label {
     color: var(--secondary-text) !important;
-}
-
-.css-r84nrn-MuiInputBase-input-MuiFilledInput-input {
-    color: var(--primary-text) !important;
 }
 
 .css-tigmpx-MuiInputBase-root-MuiFilledInput-root::before {

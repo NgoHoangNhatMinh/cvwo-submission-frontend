@@ -83,7 +83,7 @@ function CreatePost(): JSX.Element {
                     >
                         <FormControl>
                             <OutlinedInput
-                                className="TextField"
+                                className="CustomTextField"
                                 type="text"
                                 id="topic"
                                 placeholder="Topic"
@@ -111,6 +111,7 @@ function CreatePost(): JSX.Element {
                             <TextField
                                 fullWidth
                                 id="filled-textarea"
+                                className="CustomTextField"
                                 placeholder="Content"
                                 value={content}
                                 onChange={e => setContent(e.target.value)}

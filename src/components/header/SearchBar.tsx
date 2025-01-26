@@ -38,7 +38,7 @@ export default function SearchBar() {
         }}
     >
         <TextField
-            className="TextField"
+            className="CustomTextField"
             variant="outlined"
             id="searchbox"
             placeholder="Search Forum"
