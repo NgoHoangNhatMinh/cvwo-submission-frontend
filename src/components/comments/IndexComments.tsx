@@ -101,7 +101,7 @@ function IndexComments({post_id}: {post_id: number}): JSX.Element {
                                     <p className='CommentUser'>{comment.user.username}</p>
                                     {
                                         user !== undefined && comment.user_id === user.id
-                                            ? <CrudMenu handleEditState={() => handleEdit(comment)} handleDelete={() => handleDelete(comment)}/>
+                                            ? <CrudMenu handleEditState={() => handleEdit(comment)} handleDelete={() => handleDelete(comment)} mediaType="comment"/>
                                             : <></>
                                     }
                                 </div>

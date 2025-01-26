@@ -94,7 +94,7 @@ function ShowPost(): JSX.Element | undefined {
                         <div className="PostTitle">
                             <h2>{post.topic}</h2>
                             {user !== undefined && user.id === post.user_id
-                                ?   <CrudMenu handleEditState={handleEditState} handleDelete={handleDelete}/>
+                                ?   <CrudMenu handleEditState={handleEditState} handleDelete={handleDelete} mediaType='post'/>
                                 : <></>
                             }
                         </div>

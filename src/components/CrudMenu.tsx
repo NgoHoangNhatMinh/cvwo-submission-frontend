@@ -3,15 +3,20 @@ import React from "react";
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteDialog from "./DeleteDialog";
 
-export default function CrudMenu ({handleEditState, handleDelete}: {handleEditState: any, handleDelete: any}) {
+export default function CrudMenu ({handleEditState, handleDelete, mediaType}: {handleEditState: any, handleDelete: any, mediaType: string}) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
-        };
-    const handleClose = () => {
-    setAnchorEl(null);
+    };
+
+    const handleClose = (event: React.MouseEvent<HTMLElement>) => {
+        const target = event.target as HTMLElement;
+        if (target.innerText !== "Delete") {
+            setAnchorEl(null);
+        }
     };
 
     return  <React.Fragment>
@@ -71,12 +76,13 @@ export default function CrudMenu ({handleEditState, handleDelete}: {handleEditSt
                 Edit
             </MenuItem>
         
-            <MenuItem onClick={handleDelete}>
+            <MenuItem>
                 <ListItemIcon>
                     <DeleteIcon fontSize="small" />
                 </ListItemIcon>
-                Delete
+                <DeleteDialog handleDelete={handleDelete} mediaType={mediaType}></DeleteDialog>
             </MenuItem>
         </Menu>
+
     </React.Fragment>
 }
