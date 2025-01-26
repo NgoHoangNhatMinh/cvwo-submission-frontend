@@ -61,7 +61,9 @@ function IndexPosts(): JSX.Element {
             <SideBar/>
             <div className="Content">
                 <Box>
-                <FormControl>
+                <FormControl sx={{
+                    minWidth:120
+                }}>
                     <InputLabel id="demo-simple-select-label">Sort By</InputLabel>
                     <Select
                     labelId="demo-simple-select-label"

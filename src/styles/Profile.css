@@ -35,3 +35,9 @@
     align-items: center;
     gap: 0.5rem;
 }
+
+/* SETTING */
+.Form.Setting {
+    display: flex;
+    flex-direction: column;
+}

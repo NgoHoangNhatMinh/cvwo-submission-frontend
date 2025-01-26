@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { AccountCircle } from "@mui/icons-material";
 import SideBar from "./SideBar";
+import "../styles/Profile.css"
 
 export default function Setting() {
     const API_URL: string | undefined = import.meta.env.VITE_API_URL;
