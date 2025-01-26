@@ -9,6 +9,8 @@ import { AccountMenu } from "./AccountMenu";
 import ContrastIcon from '@mui/icons-material/Contrast';
 import AddIcon from '@mui/icons-material/Add';
 import SearchBar from "./SearchBar";
+import LogoDark from '../../assets/cvwo-logo-text-light.svg';
+import LogoLight from '../../assets/cvwo-logo-text.svg';
 
 function Header() {
     const {loggedIn, setLoggedIn} = useAuth();
@@ -48,12 +50,7 @@ function Header() {
     function handleThemeChange() {
         localStorage.setItem('is_dark', String(!isDarkMode));
         setIsDarkMode(!isDarkMode);
-        if (isDarkMode) {
-            setLogo('../src/assets/cvwo-logo-text.svg')
-        } else {
-            setLogo('../src/assets/cvwo-logo-text-light.svg')
-        }
-
+        setLogo(isDarkMode ? LogoLight : LogoDark);
     }
 
     useEffect(() => {
@@ -91,11 +88,11 @@ function Header() {
         const isDark = localStorage.getItem('is_dark');
         if (isDark === null || isDark === "false") {
             setIsDarkMode(false);
-            setLogo('../src/assets/cvwo-logo-text.svg')
+            setLogo(LogoLight);
         } else {
             setIsDarkMode(true);
-            setLogo('../src/assets/cvwo-logo-text-light.svg')
-        } 
+            setLogo(LogoDark);
+        }
     }, [])
 
 
