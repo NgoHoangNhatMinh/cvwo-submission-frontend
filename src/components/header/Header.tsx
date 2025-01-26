@@ -49,9 +49,9 @@ function Header() {
         localStorage.setItem('is_dark', String(!isDarkMode));
         setIsDarkMode(!isDarkMode);
         if (isDarkMode) {
-            setLogo('../../../public/cvwo-logo-text.svg')
+            setLogo('../src/assets/cvwo-logo-text.svg')
         } else {
-            setLogo('../../../public/cvwo-logo-text-light.svg')
+            setLogo('../src/assets/cvwo-logo-text-light.svg')
         }
 
     }
@@ -91,10 +91,10 @@ function Header() {
         const isDark = localStorage.getItem('is_dark');
         if (isDark === null || isDark === "false") {
             setIsDarkMode(false);
-            setLogo('../../../public/cvwo-logo-text.svg')
+            setLogo('../src/assets/cvwo-logo-text.svg')
         } else {
             setIsDarkMode(true);
-            setLogo('../../../public/cvwo-logo-text-light.svg')
+            setLogo('../src/assets/cvwo-logo-text-light.svg')
         } 
     }, [])
 

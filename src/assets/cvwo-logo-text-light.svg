@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1080" height="1080" viewBox="0 0 1080 1080" xml:space="preserve">
+<desc>Created with Fabric.js 5.2.4</desc>
+<defs>
+</defs>
+<rect x="0" y="0" width="100%" height="100%" fill="transparent"></rect>
+<g transform="matrix(1 0 0 1 540 540)" id="93ddf7fe-14e6-4afb-9898-6396a1381e57"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; visibility: hidden;" vector-effect="non-scaling-stroke"  x="-540" y="-540" rx="0" ry="0" width="1080" height="1080" />
+</g>
+<g transform="matrix(1 0 0 1 540 540)" id="28f8b3d3-0673-4936-aa3b-ee8d6e0a8968"  >
+</g>
+<g transform="matrix(0.34 0 0 0.34 217.83 561.63)"  >
+<path style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-600, -600)" d="M 1076.301 874.994 L 1076.301 324.994 L 1069.1219999999998 320.84400000000005 C 1067.6539999999998 319.67300000000006 1066.0369999999998 318.76800000000003 1064.3249999999998 318.0690000000001 L 600.007 50 L 123.7 324.994 L 123.7 874.994 L 600.007 1150 L 1076.301 874.994 z M 374.394 487.105 L 582.694 603.198 C 582.694 603.313 582.66 603.428 582.66 603.519 L 581.774 849.972 L 374.394 730.254 L 374.394 487.105 z M 621.089 604.529 L 825.594 488.825 L 825.594 730.255 L 620.216 848.836 L 621.089 604.529 z M 603.072 570.553 L 397.857 456.201 L 599.973 339.5 L 803.645 457.085 L 603.072 570.553 z M 619.322 1094.452 L 620.04 893.283 L 864.009 752.421 L 864.009 467.084 L 1037.859 368.729 L 1037.859 852.8050000000001 L 619.322 1094.452 z M 1018.103 335.762 L 842.48 435.137 L 600 295.134 L 358.751 434.391 L 181.83599999999998 335.786 L 600 94.365 L 1018.103 335.762 z M 162.102 368.798 L 335.95799999999997 465.68600000000004 L 335.95799999999997 752.433 L 581.604 894.27 L 580.894 1094.59 L 162.115 852.805 L 162.115 368.798 L 162.102 368.798 z" stroke-linecap="round" />
+</g>
+<g transform="matrix(2.54 0 0 2.54 711.18 564.96)" style="" id="f5a795a4-81cf-454e-b9c0-f4ec259e87e7"  >
+		<text xml:space="preserve" font-family="Alegreya" font-size="80" font-style="normal" font-weight="700" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-113.88" y="25.13" >CVWO</tspan></text>
+</g>
+</svg>
