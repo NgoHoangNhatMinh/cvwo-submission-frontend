@@ -15,6 +15,15 @@
     border-radius: 8px;
 }
 
+.AuthenticationForm p {
+    margin: 0;
+}
+
+.AuthenticationForm form {
+    margin: 2rem 0px 2rem !important;
+}
+
+
 .SignupContainer form, .LoginContainer form {
     display: flex;
     flex-direction: column;
@@ -48,6 +57,10 @@
     background-image: url("../assets/liquid-marble-background-with-golden-gloss-texture/4107774.jpg");
     width: 50%;
     flex-grow: 1; /* Makes it fill available space */
+}
+
+.LoginOptionText, .SignupOptionText {
+    margin: 0;
 }
 
 @media (max-width: 600px) {

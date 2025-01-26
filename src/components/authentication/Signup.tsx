@@ -51,8 +51,8 @@ function Signup() {
 
     return <>
         <div className="SignupContainer">
+        <h1>Sign Up to CVWOForum</h1>
         <p>Start your writing journey</p>
-        <h2>Sign Up to CVWOForum</h2>
         <FormControl
             className="Form"
             component="form" // Ensures this acts as a form element
@@ -161,7 +161,7 @@ function Signup() {
             </div>
         </FormControl>
         <div className="SignupOption">
-            <p>Have an account?</p>
+            <p className="SignupOptionText">Have an account?</p>
             <Link to="/authentication/login">Log In</Link>
         </div>
     </div>
