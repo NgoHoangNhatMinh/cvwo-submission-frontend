@@ -2,8 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { useEffect, useState } from "react";
 import { useUser } from "../contexts/UserContext";
-// import Logo from '../../assets/cvwo-logo-zip-file/svg/logo-color.svg'
-import Logo from '../../../public/cvwo-logo-text.svg'
 import { Button, } from "@mui/material";
 import { useTheme } from "../contexts/ThemeContext";
 import axios from "axios";
@@ -19,6 +17,7 @@ function Header() {
     const API_URL: string | undefined = import.meta.env.VITE_API_URL;
     const navigate = useNavigate();
     const [error, setError] = useState<string>("");
+    const [logo, setLogo] = useState('');
 
     function handleLogout() {
         setLoggedIn(false);
@@ -49,6 +48,12 @@ function Header() {
     function handleThemeChange() {
         localStorage.setItem('is_dark', String(!isDarkMode));
         setIsDarkMode(!isDarkMode);
+        if (isDarkMode) {
+            setLogo('../../../public/cvwo-logo-text.svg')
+        } else {
+            setLogo('../../../public/cvwo-logo-text-light.svg')
+        }
+
     }
 
     useEffect(() => {
@@ -101,7 +106,7 @@ function Header() {
     return <div className="HeaderContainer">
         <Link to="/" className="LeftHeader">
             {/* <Avatar src={Logo}></Avatar> */}
-            <img src={Logo} alt="" style={{ width: "5rem", height: "auto" }} />
+            <img src={logo} alt="" style={{ width: "5rem", height: "auto" }} />
         </Link>
         {/* In small screen, search form should turn into icon that can expand the whole bar upon click */}
         <div className="MiddleHeader">
