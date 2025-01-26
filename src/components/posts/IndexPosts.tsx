@@ -45,6 +45,12 @@ function IndexPosts(): JSX.Element {
     }, [searchParams]);
 
     if (error) {
+        if (error === "Network Error") {
+            return <div className='MainContainer'>
+                <p>{error}</p>
+                <p>Please wait a while for server to start and try again</p>
+            </div>
+        }
         return <div className='MainContainer'>{error}</div>;
     }
 
