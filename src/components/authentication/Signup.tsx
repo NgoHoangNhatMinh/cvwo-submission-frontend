@@ -45,7 +45,7 @@ function Signup() {
             navigate("/")
         } catch (error) {
             console.error("Sign up error:", error);
-            alert("Cannot sign up");
+            alert("Email or username might have been taken");
         }
     };
 
