@@ -89,19 +89,19 @@ function CreatePost(): JSX.Element {
                                 placeholder="Topic"
                                 value={topic}
                                 onChange={e => setTopic(e.target.value)}
-                                sx={{
-                                    minWidth: '350px',
-                                }}
+                                // sx={{
+                                //     minWidth: '350px',
+                                // }}
                                 required
                             />
                         </FormControl>
                         <FormControl sx={{ minWidth: 200, marginBottom: 2 }}>
-                            <InputLabel id="demo-simple-select-label">Category</InputLabel>
+                            <InputLabel id="demo-simple-select-label" className="CustomLabel">Category</InputLabel>
                             <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             // value={sortOption}
-                            label="Sort By"
+                            label="Category"
                             onChange={e => setCategoryID(Number(e.target.value))}
                             >
                                 {categories.map((category => <MenuItem value={category.id} key={category.id}>{category.name.charAt(0).toUpperCase() + category.name.slice(1)}</MenuItem>))}

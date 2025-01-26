@@ -33,7 +33,7 @@
 }
 
 .Post .PostContent {
-    color: var(--secondary-text);
+    color: var(--primary-text);
 }
 
 .Post .AcademicCategory, .Post .AdviceCategory, .Post .AccomodationCategory, .Post .CourseCategory, .Post .MiscellaneousCategory, .Post .MiscCategory {

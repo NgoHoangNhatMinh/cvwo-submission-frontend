@@ -64,10 +64,10 @@ function IndexPosts(): JSX.Element {
                 <FormControl sx={{
                     minWidth:120
                 }}>
-                    <InputLabel id="demo-simple-select-label">Sort By</InputLabel>
+                    <InputLabel id="SortLabel" className='CustomLabel'>Sort By</InputLabel>
                     <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
+                    labelId="SortLabel"
+                    id="Sort"
                     value={sortOption}
                     label="Sort By"
                     onChange={handleSort}

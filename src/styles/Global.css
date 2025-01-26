@@ -43,8 +43,6 @@
 
 /* OVERALL STYLING */
 
-
-
 #root {
     display: flex;
     flex-direction: column;
@@ -60,25 +58,36 @@ button {
     border-color: var(--secondary-dark);
 }
 
-.TextField .MuiInputLabel-root{
-    color: var(--secondary-text);
-}
-
 .TextField .MuiOutlinedInput-root{
     & fieldset {
         border-color: var(--primary-contrast); /* Default border color */
     }
 }
 
-.FormControlSelect .MuiInputLabel-root {
-    color: var(--secondary-text);
-  }
+/* I use the specific identifier of different MUI element through the inspector to toggle themes */
+.FormControlSelect .MuiInputLabel-root, .MuiInputAdornment-root, .MuiInputBase-input::placeholder, .MuiInputBase-root .MuiSelect-select,
+.TextField .MuiInputLabel-root, .css-2u11ia-MuiInputBase-input-MuiOutlinedInput-input, .css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input {
+    color: var(--primary-text) !important;
+}
 
-.Select .MuiOutlinedInput-notchedOutline {
-    border-color: var(--primary-contrast);
-  }
+.CustomLabel {
+    color: var(--secondary-text) !important;
+}
 
-  a, a:hover{
+.css-r84nrn-MuiInputBase-input-MuiFilledInput-input {
+    color: var(--primary-text) !important;
+}
+
+.css-tigmpx-MuiInputBase-root-MuiFilledInput-root::before {
+    border-color: var(--outline) !important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+    border-color: var(--primary-contrast) !important;
+}
+
+
+a, a:hover{
     color: var(--primary-text);
 
     display: block;
