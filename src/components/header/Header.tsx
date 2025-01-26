@@ -91,8 +91,11 @@ function Header() {
         const isDark = localStorage.getItem('is_dark');
         if (isDark === null) {
             setIsDarkMode(false);
+            setLogo('../../../public/cvwo-logo-text.svg')
         } else {
             setIsDarkMode(isDark === "true");
+            setLogo('../../../public/cvwo-logo-text-light.svg')
+
         } 
     }, [])
 
