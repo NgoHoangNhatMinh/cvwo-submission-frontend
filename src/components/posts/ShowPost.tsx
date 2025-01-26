@@ -66,6 +66,10 @@ function ShowPost(): JSX.Element | undefined {
             .catch(error => setError(error.message))
     }, []);
 
+    if (error) {
+        return <div className='MainContainer'>{error}</div>;
+    }
+
     // While waiting to fetch post data from the server
     if (loading) {
         return <div className='MainContainer'>Loading...</div>
@@ -75,11 +79,6 @@ function ShowPost(): JSX.Element | undefined {
     if (!post) {
         return <div>There are no such post</div>
     }
-
-    if (error) {
-        return <div>{error}</div>;
-    }
-
 
     const today = new Date();
     const postDate = new Date(post.created_at);
@@ -100,7 +99,7 @@ function ShowPost(): JSX.Element | undefined {
                             }
                         </div>
                         <p className="PostUser">{post.user.username}</p>
-                        <p className={post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1) + "Category"}>
+                        <p className={post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1) + "Category Category"}>
                             {post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1)}
                         </p>
                         {

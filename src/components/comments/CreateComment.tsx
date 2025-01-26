@@ -57,12 +57,14 @@ function CreateComment({post_id, handleNew, navigate}: {post_id: number, handleN
             }
             >
                 <TextField
-                    className="TextField"
+                    fullWidth
                     id="addcommentbox"
-                    label="Add Comment"
-                    variant="outlined"
+                    placeholder="Add Comment"
                     value={content}
-                    onChange={(e) => setContent(e.target.value)}
+                    onChange={e => setContent(e.target.value)}
+                    multiline
+                    variant="filled"
+                    required
                 />
                 <Button type="submit" variant="contained">Comment</Button>
             </FormControl>

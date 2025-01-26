@@ -29,17 +29,31 @@
     padding-left: 2rem;
 }
 
+.CommentInfo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 .CommentTitle {
     display: flex;
     align-items: center;
 }
 
-.CommentInfo {
-    flex: 1;
-}
-
 .EditCommentContainer {
     margin: 1rem 0px 1rem;
+}
+
+.CommentBody {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    padding-bottom: 1rem;
 }
 
 /* ADD COMMENT */

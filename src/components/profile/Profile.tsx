@@ -1,5 +1,5 @@
 import { useUser } from "../contexts/UserContext";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import "../../styles/Profile.css"
 import { Avatar, Button } from "@mui/material";
 import SideBar from "../SideBar";
@@ -30,14 +30,18 @@ function Profile () {
             <SideBar/>
             <div className="Content Profile">
                 <div className="ProfileContainer">
-                    <Avatar src={user?.image_url} sx={{ width: 150, height: 150 }}></Avatar>
+                    <Link to="/setting">
+                        <Avatar src={user?.image_url} sx={{ width: 150, height: 150 }}></Avatar>
+                    </Link>
                     <div className="ProfileInfo">
                         <h1>{`${user.username}`}</h1>
                         <p>{`${user.email}`}</p>
                     </div>
                 </div>
-                <Button onClick={handlePosts}>Posts</Button>
-                <Button onClick={handleComments}>Comments</Button>
+                <div className="ProfileContentOptions">
+                    <Link to={"/user/posts"}><Button onClick={handlePosts}>Posts</Button></Link>
+                    <Link to={"/user/comments"}><Button onClick={handleComments}>Comments</Button></Link>
+                </div>
                 <Outlet/>
             </div>
         </div>

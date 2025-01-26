@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Post } from '../../interfaces';
 import '../../styles/Post.css'
-import { InputLabel, FormControl, Select, MenuItem } from '@mui/material';
+import { InputLabel, FormControl, Select, MenuItem, Box } from '@mui/material';
 import axios from 'axios';
 import SideBar from '../SideBar';
 import { getDateDifference } from '../GlobalFunctions';
@@ -45,7 +45,7 @@ function IndexPosts(): JSX.Element {
     }, [searchParams]);
 
     if (error) {
-        return <div>{error}</div>;
+        return <div className='MainContainer'>{error}</div>;
     }
 
     if (loading) {
@@ -53,27 +53,29 @@ function IndexPosts(): JSX.Element {
     }
 
     if (!posts) {
-        return <div>There are no posts</div>
+        return <div className='MainContainer'>There are no posts</div>
     }
 
     return (
         <div className='MainContainer'>
             <SideBar/>
             <div className="Content">
-                <FormControl className='FormControlSelect' sx={{ m: 1, minWidth: 200 }}>
-                    <InputLabel id="sort-select-label">Sort By</InputLabel>
+                <Box>
+                <FormControl>
+                    <InputLabel id="demo-simple-select-label">Sort By</InputLabel>
                     <Select
-                        className="Select"
-                        labelId="sort-select-label"
-                        id="sort-select"
-                        value={sortOption}
-                        onChange={handleSort}
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={sortOption}
+                    label="Sort By"
+                    onChange={handleSort}
                     >
                         <MenuItem value="" disabled>Sort By</MenuItem>  {/* Placeholder */}
                         <MenuItem value="time">Newest</MenuItem>
                         <MenuItem value="rate">Oldest</MenuItem>
                     </Select>
                 </FormControl>
+                </Box>
                 {
                     posts.map((post) => {
                         const today = new Date();
@@ -81,22 +83,24 @@ function IndexPosts(): JSX.Element {
                         const diff = getDateDifference(today, postDate);
 
                         return <div className="PostBorder" key={post.id}>
-                            <div onClick={() => navigateToPost(post.id)} className="Post Clickable">
-                                <div className="PostText">
-                                    <h2>{post.topic}</h2>
-                                    <p className={post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1) + "Category Category"}>
-                                        {post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1)}
-                                    </p>
-                                    <p className='PostContent'>{post.content}</p>
-                                </div>
-                                <div className="PostMetadata">
-                                    <p>{diff + " ago"}</p>
-                                    <div className="CommentCount">
-                                        <ChatIcon/>
-                                        <p>{post.comment_count}</p>
+                            <Link to={"/posts/" + post.id}>
+                                <div onClick={() => navigateToPost(post.id)} className="Post Clickable">
+                                    <div className="PostText">
+                                        <h2>{post.topic}</h2>
+                                        <p className={post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1) + "Category Category"}>
+                                            {post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1)}
+                                        </p>
+                                        <p className='PostContent'>{post.content}</p>
+                                    </div>
+                                    <div className="PostMetadata">
+                                        <p>{diff + " ago"}</p>
+                                        <div className="CommentCount">
+                                            <ChatIcon/>
+                                            <p>{post.comment_count}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         </div>
                     })
                 }

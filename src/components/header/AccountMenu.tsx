@@ -4,6 +4,7 @@ import { Avatar, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } fr
 import React from "react";
 import { useUser } from "../contexts/UserContext";
 import { Logout, Settings } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 export function AccountMenu({handleLogout, handleProfile, handleSetting} : {handleLogout:any, handleProfile:any, handleSetting:any}) {
     const {user} = useUser();
@@ -66,17 +67,20 @@ export function AccountMenu({handleLogout, handleProfile, handleSetting} : {hand
             transformOrigin={{ horizontal: 'right', vertical: 'top' }}
             anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         >
-            <MenuItem onClick={handleProfile}>
-                <Avatar src={user?.image_url}/> Profile
-            </MenuItem>
+            <Link to={"/user/posts"}>
+                <MenuItem onClick={handleProfile}>
+                    <Avatar src={user?.image_url}/> Profile
+                </MenuItem>
+            </Link>
             <Divider />
-            <MenuItem onClick={handleSetting}>
-                <ListItemIcon>
-                    <Settings fontSize="small" />
-                </ListItemIcon>
-                Settings
-            </MenuItem>
-        
+            <Link to={"/setting"}>
+                <MenuItem onClick={handleSetting}>
+                    <ListItemIcon>
+                        <Settings fontSize="small" />
+                    </ListItemIcon>
+                    Settings
+                </MenuItem>
+            </Link>
             <MenuItem onClick={handleLogout}>
                 <ListItemIcon>
                     <Logout fontSize="small" />

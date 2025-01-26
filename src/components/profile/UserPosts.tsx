@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useUser } from "../contexts/UserContext";
 import { Post } from "../../interfaces";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getDateDifference } from "../GlobalFunctions";
 
 function UserPosts() {
@@ -44,20 +44,22 @@ function UserPosts() {
                     const postDate = new Date(post.created_at);
                     const diff = getDateDifference(today, postDate);
 
-                    return <div className="PostBorder" key={post.id}>
-                        <div onClick={() => navigateToPost(post.id)} className="Post Clickable">
-                            <div className="PostText">
-                                <h2>{post.topic}</h2>
-                                <p className={post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1) + "Category Category"}>
-                                    {post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1)}
-                                </p>
-                                <p className='PostContent'>{post.content}</p>
-                            </div>
-                            <div className="PostMetadata">
-                                <p>{diff + " ago"}</p>
+                    return <Link to={"/posts/" + post.id}>
+                        <div className="PostBorder" key={post.id}>
+                            <div onClick={() => navigateToPost(post.id)} className="Post Clickable">
+                                <div className="PostText">
+                                    <h2>{post.topic}</h2>
+                                    <p className={post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1) + "Category Category"}>
+                                        {post.category.name.charAt(0).toUpperCase() + post.category.name.slice(1)}
+                                    </p>
+                                    <p className='PostContent'>{post.content}</p>
+                                </div>
+                                <div className="PostMetadata">
+                                    <p>{diff + " ago"}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </Link>
                     })
                 : <p>No posts available</p>
         }

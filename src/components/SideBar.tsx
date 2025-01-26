@@ -4,7 +4,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import SchoolIcon from '@mui/icons-material/School';
 import GrainIcon from '@mui/icons-material/Grain';
 import AirlineSeatIndividualSuiteIcon from '@mui/icons-material/AirlineSeatIndividualSuite';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 export default function SideBar() {
@@ -29,29 +29,41 @@ export default function SideBar() {
 
     return <div className="SideBar">
         <h2>Categories</h2>
-        <div className="Category" onClick={() => navigate("/")}>
-            <HomeIcon/>
-            <p>Homepage</p>
-        </div>
-        <div className="Category" onClick={queryCategory}>
-            <MenuBookIcon/>
-            <p>Academic</p>
-        </div>
-        <div className="Category" onClick={queryCategory}>
-            <QuestionAnswerIcon/>
-            <p>Advice</p>
-        </div>
-        <div className="Category" onClick={queryCategory}>
-            <AirlineSeatIndividualSuiteIcon/>
-            <p>Accomodation</p>
-        </div>
-        <div className="Category" onClick={queryCategory}>
-            <SchoolIcon/>
-            <p>Course</p>
-        </div>
-        <div className="Category" onClick={queryCategory}>
-            <GrainIcon/>
-            <p>Miscellaneous</p>
-        </div>
+        <Link to={"/"}>
+            <div className="Category" onClick={() => navigate("/")}>
+                <HomeIcon/>
+                <p>Homepage</p>
+            </div>
+        </Link>
+        <Link to={"/?category=academic"}>
+            <div className="Category" onClick={queryCategory}>
+                <MenuBookIcon/>
+                <p>Academic</p>
+            </div>
+        </Link>
+        <Link to={"/?category=advice"}>
+            <div className="Category" onClick={queryCategory}>
+                <QuestionAnswerIcon/>
+                <p>Advice</p>
+            </div>
+        </Link>
+        <Link to={"/?category=accomodation"}>
+            <div className="Category" onClick={queryCategory}>
+                <AirlineSeatIndividualSuiteIcon/>
+                <p>Accomodation</p>
+            </div>
+        </Link>
+        <Link to={"/?category=course"}>
+            <div className="Category" onClick={queryCategory}>
+                <SchoolIcon/>
+                <p>Course</p>
+            </div>
+        </Link>
+        <Link to={"/?category=miscellaneous"}>
+            <div className="Category" onClick={queryCategory}>
+                <GrainIcon/>
+                <p>Miscellaneous</p>
+            </div>
+        </Link>
     </div>
 }

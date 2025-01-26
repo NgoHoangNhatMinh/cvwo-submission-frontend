@@ -3,7 +3,7 @@ import { useUser } from "../contexts/UserContext";
 import { Comment } from "../../interfaces";
 import axios from "axios";
 import { getDateDifference } from "../GlobalFunctions";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 function UserComments() {
@@ -45,24 +45,25 @@ function UserComments() {
                     const postDate = new Date(comment.created_at);
                     const diff = getDateDifference(today, postDate);
 
-                    return <div className="CommentBorder" key={comment.id}>
-                        <div onClick={() => navigateToPost(comment.post.id)} className="Comment Clickable">
-                            <h2 className="CommentTitle">{comment.post.topic}</h2>
-                            <div className="CommentContent">
-                                <div className="CommentUser">
-                                    <em>{comment.user.username}</em>
-                                    <FiberManualRecordIcon
-                                        sx={{
-                                            fontSize: "0.5rem"
-                                        }}
-                                    />
-                                    <p>{diff + " ago"}</p>
+                    return <Link to={"/posts/" + comment.post.id}>
+                        <div className="CommentBorder" key={comment.id}>
+                            <div onClick={() => navigateToPost(comment.post.id)} className="Comment Clickable">
+                                <h2 className="CommentTitle">{comment.post.topic}</h2>
+                                <div className="CommentContent">
+                                    <div className="CommentUser">
+                                        <em>{comment.user.username}</em>
+                                        <FiberManualRecordIcon
+                                            sx={{
+                                                fontSize: "0.5rem"
+                                            }}
+                                        />
+                                        <p>{diff + " ago"}</p>
+                                    </div>
+                                    <p className="CommentBody">{comment.content}</p>
                                 </div>
-                                {comment.content}
                             </div>
                         </div>
-                    </div>
-                    
+                    </Link>
                     })
                 : <p>No comments available</p>
         }

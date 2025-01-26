@@ -80,8 +80,8 @@ button {
     color: var(--primary-text);
 
     display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+    /* margin-block-start: 1em;
+    margin-block-end: 1em; */
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     unicode-bidi: isolate;     
@@ -120,6 +120,10 @@ button {
 
 .UserProfilePicture {
     border-radius: 50%;
+}
+
+.RightHeader {
+    display: flex;
 }
 
 /* MAIN SECTION COMPONENTS */
@@ -178,7 +182,7 @@ main {
     border-radius: 15px;
 }
 
-.Category {
+.SideBar .Category {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -189,7 +193,7 @@ main {
     border-radius: 5px;
 }
 
-.Category:hover {
+.SideBar .Category:hover {
     cursor: pointer;
     background-color: var(--primary-highlight);
 }

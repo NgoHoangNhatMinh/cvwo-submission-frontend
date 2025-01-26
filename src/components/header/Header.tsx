@@ -108,12 +108,12 @@ function Header() {
             <Button onClick={handleThemeChange}><ContrastIcon></ContrastIcon></Button>
             {loggedIn 
                 ? <>
-                    <Button onClick={handleCreate}><AddIcon/> Create</Button>
+                    <Link to={"/posts/new"}><Button onClick={handleCreate}><AddIcon/> Create</Button></Link>
                     <AccountMenu handleLogout={handleLogout} handleProfile={handleProfile} handleSetting={handleSetting}/>
                 </> 
                 : <>
-                    <Button onClick={handleSignup}>Sign up</Button>
-                    <Button onClick={handleLogin}>Log in</Button>
+                    <Link to={"/authentication/signup"}><Button onClick={handleSignup}>Sign up</Button></Link>
+                    <Link to={"/authentication/login"}><Button onClick={handleLogin}>Log in</Button></Link>
                 </>
             }
         </div>

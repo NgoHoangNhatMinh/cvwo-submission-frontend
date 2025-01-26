@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Category, PostData } from "../../interfaces";
 import "../../styles/Post.css"
-import { Button, FormControl, InputLabel, MenuItem, OutlinedInput, Select, TextField } from "@mui/material";
+import { Box, Button, FormControl, InputLabel, MenuItem, OutlinedInput, Select, TextField } from "@mui/material";
 import axios from "axios";
 import SideBar from "../SideBar";
 
@@ -96,8 +96,14 @@ function CreatePost(): JSX.Element {
                             />
                         </FormControl>
                         <FormControl sx={{ minWidth: 200, marginBottom: 2 }}>
-                            <InputLabel>Category</InputLabel>
-                            <Select onChange={e => setCategoryID(Number(e.target.value))}>
+                            <InputLabel id="demo-simple-select-label">Category</InputLabel>
+                            <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            // value={sortOption}
+                            label="Sort By"
+                            onChange={e => setCategoryID(Number(e.target.value))}
+                            >
                                 {categories.map((category => <MenuItem value={category.id} key={category.id}>{category.name.charAt(0).toUpperCase() + category.name.slice(1)}</MenuItem>))}
                             </Select>
                         </FormControl>

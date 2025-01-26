@@ -107,7 +107,7 @@ function IndexComments({post_id}: {post_id: number}): JSX.Element {
                                 </div>
                                 {
                                     !edit[comment.id]
-                                        ? <p>{comment.content}</p>
+                                        ? <p className='CommentBody'>{comment.content}</p>
                                         : <UpdateComment comment={comment} handleEditState={handleEdit} handleChange={handleChange} navigate={navigate}/>
 
                                 }
