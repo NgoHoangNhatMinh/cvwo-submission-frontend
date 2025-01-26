@@ -3,7 +3,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { useEffect, useState } from "react";
 import { useUser } from "../contexts/UserContext";
 // import Logo from '../../assets/cvwo-logo-zip-file/svg/logo-color.svg'
-import Logo from '../../assets/logo.jpg'
+import Logo from '../../../public/cvwo-logo-text.svg'
 import { Avatar, Button, } from "@mui/material";
 import { useTheme } from "../contexts/ThemeContext";
 import axios from "axios";
@@ -99,7 +99,10 @@ function Header() {
       }, [isDarkMode]);
 
     return <div className="HeaderContainer">
-        <Link to="/" className="LeftHeader"><Avatar src={Logo}></Avatar></Link>
+        <Link to="/" className="LeftHeader">
+            {/* <Avatar src={Logo}></Avatar> */}
+            <img src={Logo} alt="" style={{ width: "5rem", height: "auto" }} />
+        </Link>
         {/* In small screen, search form should turn into icon that can expand the whole bar upon click */}
         <div className="MiddleHeader">
             <SearchBar/>
